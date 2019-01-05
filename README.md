@@ -12,8 +12,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 [![Youtube](https://img.youtube.com/vi/7xBnmWHpVA0/0.jpg)](https://www.youtube.com/watch?v=7xBnmWHpVA0)
 
 # Installing
-[How to instal AWF on your device](https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html)
-Sign also for the watch extension.
+[Video tutorial](https://youtu.be/-TS4ypziaMU)
 
 # Use
 To change watchfaces rotate the Digital Crown.
