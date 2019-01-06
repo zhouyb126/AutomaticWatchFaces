@@ -25,7 +25,17 @@ class WatchSettingsManager {
         
         watchSettingsList.append(WatchSettings(name: "Breitling Avenger Blackbird", dial: "ABDial", secondHand: "ABSecond", minuteHand: "ABMinute", hourHand: "ABHour", date: true,secondHandScale:0.40,datePositionY:-1,dateColor:.white))
         
-        watchSettingsList.append(WatchSettings(name: "Philippe Patek Nautilus", dial: "NauDial", secondHand: "NauSecond", minuteHand: "NauMinute", hourHand: "NauHour", date: true,minuteHandScale:0.09, secondHandScale:0.44,hourHandScale:0.12,datePositionX: 75,datePositionY:-1))
+        watchSettingsList.append(WatchSettings(name: "Philippe Patek Nautilus", dial: "NauDial", secondHand: "NauSecond", minuteHand: "NauMinute", hourHand: "NauHour", date: true, secondHandScale:0.44,hourHandScale:0.12,datePositionX: 75,datePositionY:-1))
+        
+        watchSettingsList.append(WatchSettings(name: "Cartier Tank", dial: "TankDial", secondHand: nil, minuteHand: "TankMinute", hourHand: "TankHour", date: false,minuteHandScale:0.08,hourHandScale:0.14))
+        
+        
+         watchSettingsList.append(WatchSettings(name: "Hermes Apple Watch", dial: "HermesDial", secondHand: nil, minuteHand: "HermesMinute", hourHand: "HermesHour", date: false))
+        
+        watchSettingsList.append(WatchSettings(name: "Seiko SKX007", dial: "SKXDial", secondHand: "SKXSecond", minuteHand: "SKXMinute", hourHand: "SKXHour", date: true,minuteHandScale:0.14, secondHandScale:0.6, hourHandScale:0.15, datePositionX:79,datePositionY:-0.2))
+        
+        self.watchSettingsList = watchSettingsList.sorted { $0.name < $1.name }
+        
         
     }
 }

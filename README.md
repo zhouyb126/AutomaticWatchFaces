@@ -12,8 +12,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 [![Youtube](https://img.youtube.com/vi/7xBnmWHpVA0/0.jpg)](https://www.youtube.com/watch?v=7xBnmWHpVA0)
 
 # Installing
-[How to instal AWF on your device](https://www.twilio.com/blog/2018/07/how-to-test-your-ios-application-on-a-real-device.html)
-Sign also for the watch extension.
+[Video tutorial](https://youtu.be/-TS4ypziaMU)
 
 # Use
 To change watchfaces rotate the Digital Crown.
@@ -25,21 +24,27 @@ To change watchfaces rotate the Digital Crown.
 - Under ‘ON SCREEN WAKE SHOW LAST APP’ select Always.
 
 # List of watchfaces
-For the moment only 8 watchfaces are available, more will come very soon !
+For the moment 11 watchfaces are available, more will come very soon !
 
+### Breitling Avenger Blackbird W/Date
 
-### Rolex Submariner
-### Rolex Milgauss
-### Rolex Explorer II W/ Date
+### Cartier Tank
+
+### Hermes Apple Watch
 
 ### Omega Seamaster
 ### Omega Speedmaster Professional
 
+### Philippe Patek Nautilus W/ Date
+
+### Rolex Explorer II W/ Date
+### Rolex Milgauss
+### Rolex Submariner
+
+### Seiko SKX007 W/ Date
+
 ### Tag Heuer Monaco W/ Date
 
-### Breitling Avenger Blackbird W/Date
-
-### Philippe Patek Nautilus
 
 
 
@@ -55,8 +60,16 @@ For the moment only 8 watchfaces are available, more will come very soon !
 - Philippe Patek Nautilus watchface added.
 - Omega Speedmaster Professional watchface added.
 
+## Version 0.4
+- Minor adjustment on watchfaces.
+- Cartier Tank watchface added.
+- Seiko SKX007 watchface added.
+- Hermes Apple Watch watchface added.
+
 # Future
 - Make real chronograph and other complications on watchfaces.
 
-#Author
+FOR EDUCATIONAL PURPOSES ONLY
+
+# Author
 [@SylGllr](https://twitter.com/SylGllr)

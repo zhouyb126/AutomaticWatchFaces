@@ -15,7 +15,6 @@ class WatchScene: SKScene {
     var minuteHand : SKSpriteNode = SKSpriteNode()
     var hourHand : SKSpriteNode = SKSpriteNode()
     var dateLabel : SKLabelNode = SKLabelNode()
-    var textures : [String:SKTexture]?
     
     
     override func sceneDidLoad() {

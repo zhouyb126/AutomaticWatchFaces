@@ -59,17 +59,32 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
             scene.scaleMode = .aspectFit
             scene.dialBackground.texture = SKTexture(imageNamed: watch.dial)
             
-            scene.minuteHand.texture = SKTexture(imageNamed: watch.minuteHand)
+            if watch.minuteHand?.isEmpty == false{
+                scene.minuteHand.texture = SKTexture(imageNamed: watch.minuteHand!)
             scene.minuteHand.xScale = CGFloat(watch.minuteHandScale)
             scene.minuteHand.yScale = CGFloat(watch.minuteHandScale)
+            }
+            else {
+                scene.minuteHand.isHidden = true
+            }
             
-            scene.hourHand.texture = SKTexture(imageNamed: watch.hourHand)
+            if watch.hourHand?.isEmpty == false{
+            scene.hourHand.texture = SKTexture(imageNamed: watch.hourHand!)
             scene.hourHand.xScale = CGFloat(watch.hourHandScale)
             scene.hourHand.yScale = CGFloat(watch.hourHandScale)
+            }
+            else{
+                scene.hourHand.isHidden = true
+            }
             
-            scene.secondHand.texture = SKTexture(imageNamed: watch.secondHand)
+            if watch.secondHand?.isEmpty == false{
+            scene.secondHand.texture = SKTexture(imageNamed: watch.secondHand!)
             scene.secondHand.xScale = CGFloat(watch.secondHandScale)
             scene.secondHand.yScale = CGFloat(watch.secondHandScale)
+            }
+            else{
+                scene.secondHand.isHidden = true
+            }
             
             if watch.date == true{
                 scene.dateLabel.isHidden = false
@@ -79,6 +94,7 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
             else{
                 scene.dateLabel.isHidden = true
             }
+            
             
             self.skInterface.presentScene(scene)
         }
