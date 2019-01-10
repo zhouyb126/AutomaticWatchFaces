@@ -1,10 +1,10 @@
 ![Swift](https://img.shields.io/badge/language-Swift-orange.svg)
 
 # Automatic Watch Faces
-![AWFPresentation](https://i.ibb.co/qxrVfJM/AWFPresentation.png)
+![AWFPresentation](https://i.ibb.co/Gctn5kC/AWF05.png)
 
 # Description
-App using SpriteKit in order to simulate "fake" watchfaces on WatchOS.
+App using SpriteKit in order to simulate watchfaces on WatchOS.
 
 AWF is battery friendly, the scene is running at 25 frames per second !
 
@@ -15,7 +15,9 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 [Video tutorial](https://youtu.be/-TS4ypziaMU)
 
 # Use
-To change watchfaces rotate the Digital Crown.
+- To change watchfaces : Rotate the Digital Crown.
+- To play/pause the chronograph function : One tap on the watchface.
+- To reset the chronograph function : Long press on the watchface.
 
 # Settings (Show last app used on Apple Watch wake screen)
 - Open the Apple Watch app on iPhone.
@@ -24,29 +26,31 @@ To change watchfaces rotate the Digital Crown.
 - Under ‘ON SCREEN WAKE SHOW LAST APP’ select Always.
 
 # List of watchfaces
-For the moment 11 watchfaces are available, more will come very soon !
+For the moment 14 watchfaces are available, more will come very soon !
 
-### Breitling Avenger Blackbird W/Date
+### Bell & Ross 01-94 (W/ Date & Chronograph)
+
+### Breitling Avenger Blackbird (W/ Date)
 
 ### Cartier Tank
 
 ### Hermes Apple Watch
 
+### Hublot Spirit of Big Bang (W/ Date)
+
 ### Omega Seamaster
-### Omega Speedmaster Professional
+### Omega Speedmaster Professional (W/ Chronograph)
 
-### Philippe Patek Nautilus W/ Date
+### Philippe Patek Nautilus (W/ Date)
 
-### Rolex Explorer II W/ Date
+### Rolex Daytona (W/ Chronograph)
+### Rolex Explorer II (W/ Date)
 ### Rolex Milgauss
 ### Rolex Submariner
 
-### Seiko SKX007 W/ Date
+### Seiko SKX007 (W/ Date)
 
-### Tag Heuer Monaco W/ Date
-
-
-
+### Tag Heuer Monaco (W/ Date & Chronograph)
 
 # Updates
 
@@ -66,8 +70,15 @@ For the moment 11 watchfaces are available, more will come very soon !
 - Seiko SKX007 watchface added.
 - Hermes Apple Watch watchface added.
 
+## Version 0.5
+- Chronograph complication support added.
+- Minor adjustment on watchfaces.
+- Bell & Ross 01-94 watchface added.
+- Hublot Spirit of Big Bang watchface added.
+- Rolex Daytona watchface added.
+
 # Future
-- Make real chronograph and other complications on watchfaces.
+- More watchfaces and complications !
 
 FOR EDUCATIONAL PURPOSES ONLY
 

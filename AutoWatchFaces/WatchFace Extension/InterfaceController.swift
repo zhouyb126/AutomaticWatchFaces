@@ -14,17 +14,20 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     @IBOutlet weak var skInterface: WKInterfaceSKScene!
     
-    let watchList = WatchSettingsManager.init().watchSettingsList
-    var watchSelect = 0
+    let watchList = WatchSettingsManager.watchSettingsList
     var crownAccumulator = 0.0
     
-    let currentDeviceSize = WKInterfaceDevice.current().screenBounds.size
+    
+    
+    //let currentDeviceSize = WKInterfaceDevice.current().screenBounds.size
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         crownSequencer.delegate = self
         skInterface.isPaused = false
-        setWatchFace()
+        if let scene = WatchScene(fileNamed: "WatchScene"){
+            skInterface.presentScene(scene)
+        }
         
     }
     
@@ -35,13 +38,13 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
         crownAccumulator += rotationalDelta
-        if (crownAccumulator > 0.5 && watchSelect < watchList.count-1){
-            watchSelect += 1
+        if (crownAccumulator > 0.5 && WatchSettingsManager.actualWatch < watchList.count-1){
+            WatchSettingsManager.actualWatch += 1
             crownAccumulator = 0.0
             setWatchFace()
         }
-        else if (crownAccumulator < -0.5 && watchSelect > 0){
-            watchSelect -= 1
+        else if (crownAccumulator < -0.5 && WatchSettingsManager.actualWatch > 0){
+            WatchSettingsManager.actualWatch -= 1
             crownAccumulator = 0.0
             setWatchFace()
         }
@@ -51,53 +54,62 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
         crownAccumulator = 0.0
     }
     
-    
     func setWatchFace(){
         if let scene = WatchScene(fileNamed: "WatchScene"){
-            let watch = watchList[watchSelect]
-            
             scene.scaleMode = .aspectFit
-            scene.dialBackground.texture = SKTexture(imageNamed: watch.dial)
+            skInterface.presentScene(scene)
+        }
+    }
+    
+    
+    @IBAction func tapGesture(_ sender: Any) {
+        let scene = WatchScene(fileNamed: "WatchScene")
+        let date = Date()
+        let calendar = Calendar.current        
+        let hour = CGFloat(calendar.component(.hour, from: date))
+        let minutes = CGFloat(calendar.component(.minute, from: date))
+        
+        let seconds = CGFloat(calendar.component(.second, from: date))
+        let nanoseconds = CGFloat(calendar.component(.nanosecond, from: date))
+        
+        if WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronograph == true {
             
-            if watch.minuteHand?.isEmpty == false{
-                scene.minuteHand.texture = SKTexture(imageNamed: watch.minuteHand!)
-            scene.minuteHand.xScale = CGFloat(watch.minuteHandScale)
-            scene.minuteHand.yScale = CGFloat(watch.minuteHandScale)
+            if WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking! == false{
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking = true
+                
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographStarted = seconds + nanoseconds/pow(10,9)
+                
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographStarted = minutes+(seconds/60)
+                
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographStarted = (hour*30 + minutes/2)
+                
             }
             else {
-                scene.minuteHand.isHidden = true
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking = false
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographSaved += (seconds + nanoseconds/pow(10,9)) - WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographStarted
+                
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographSaved += minutes+(seconds/60) - WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographStarted
+                
+                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographSaved += (hour*30 + minutes/2) - WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographStarted
+                
             }
             
-            if watch.hourHand?.isEmpty == false{
-            scene.hourHand.texture = SKTexture(imageNamed: watch.hourHand!)
-            scene.hourHand.xScale = CGFloat(watch.hourHandScale)
-            scene.hourHand.yScale = CGFloat(watch.hourHandScale)
-            }
-            else{
-                scene.hourHand.isHidden = true
-            }
-            
-            if watch.secondHand?.isEmpty == false{
-            scene.secondHand.texture = SKTexture(imageNamed: watch.secondHand!)
-            scene.secondHand.xScale = CGFloat(watch.secondHandScale)
-            scene.secondHand.yScale = CGFloat(watch.secondHandScale)
-            }
-            else{
-                scene.secondHand.isHidden = true
-            }
-            
-            if watch.date == true{
-                scene.dateLabel.isHidden = false
-                scene.dateLabel.position = CGPoint(x:watch.datePositionX, y: watch.datePositionY)
-                scene.dateLabel.fontColor = watch.dateColor
-            }
-            else{
-                scene.dateLabel.isHidden = true
-            }
-            
-            
-            self.skInterface.presentScene(scene)
+            skInterface.presentScene(scene)
         }
+    }
+    
+    
+    
+    @IBAction func longPressGesture(_ sender: Any) {
+        
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking = false
+        
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographStarted = 0
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographSaved = 0
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographStarted = 0
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographSaved = 0
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographStarted = 0
+        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographSaved = 0
     }
 }
 

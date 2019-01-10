@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
     </dependencies>
@@ -16,7 +15,20 @@
                     <items>
                         <group width="1" alignment="left" spacing="0.0" id="Bxy-Ye-Nfq">
                             <items>
-                                <spriteKitScene alignment="center" verticalAlignment="center" preferredFramesPerSecond="25" id="q2C-tg-N20"/>
+                                <spriteKitScene alignment="center" verticalAlignment="center" preferredFramesPerSecond="25" id="q2C-tg-N20">
+                                    <gestureRecognizers>
+                                        <tapGestureRecognizer id="7o9-v5-dck">
+                                            <connections>
+                                                <action selector="tapGesture:" destination="AgC-eL-Hgc" id="rNo-gW-uyZ"/>
+                                            </connections>
+                                        </tapGestureRecognizer>
+                                        <longPressGestureRecognizer allowableMovement="1" id="rfN-Uk-Bqo">
+                                            <connections>
+                                                <action selector="longPressGesture:" destination="AgC-eL-Hgc" id="3SE-su-KWc"/>
+                                            </connections>
+                                        </longPressGestureRecognizer>
+                                    </gestureRecognizers>
+                                </spriteKitScene>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                         </group>
