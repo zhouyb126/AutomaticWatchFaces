@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A406946B21DCE6F70023BCDB /* WatchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48A8B1621DBE50B00B608B5 /* WatchSettings.swift */; };
-		A406946C21DCE6F90023BCDB /* WatchSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48A8B1821DBE57500B608B5 /* WatchSettingsManager.swift */; };
 		A406947021DCF6D60023BCDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45FFC8821D4DA8D003AE435 /* Assets.xcassets */; };
+		A4125C3B21EE472300890FCE /* WatchDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4125C3A21EE472300890FCE /* WatchDatabase.swift */; };
+		A4125C3C21EE486E00890FCE /* WatchDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4125C3A21EE472300890FCE /* WatchDatabase.swift */; };
+		A42CC29721EA8FE70012CCD5 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29621EA8FE70012CCD5 /* Watch.swift */; };
+		A42CC29921EA900B0012CCD5 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29821EA900B0012CCD5 /* WatchManager.swift */; };
+		A43A913521EA9DFA00E1B875 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29821EA900B0012CCD5 /* WatchManager.swift */; };
+		A43A913621EA9DFD00E1B875 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29621EA8FE70012CCD5 /* Watch.swift */; };
 		A45FFC5E21D4DA67003AE435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FFC5D21D4DA67003AE435 /* AppDelegate.swift */; };
 		A45FFC6021D4DA67003AE435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FFC5F21D4DA67003AE435 /* ViewController.swift */; };
 		A45FFC6321D4DA67003AE435 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45FFC6121D4DA67003AE435 /* Main.storyboard */; };
@@ -24,8 +28,6 @@
 		A45FFC8D21D4DA8D003AE435 /* WatchFace.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A45FFC7121D4DA8C003AE435 /* WatchFace.app */; };
 		A45FFC9721D4DB3D003AE435 /* WatchScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A45FFC9621D4DB3D003AE435 /* WatchScene.sks */; };
 		A45FFC9921D4DB4B003AE435 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FFC9821D4DB4B003AE435 /* WatchScene.swift */; };
-		A48A8B1721DBE50B00B608B5 /* WatchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48A8B1621DBE50B00B608B5 /* WatchSettings.swift */; };
-		A48A8B1921DBE57500B608B5 /* WatchSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48A8B1821DBE57500B608B5 /* WatchSettingsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A4125C3A21EE472300890FCE /* WatchDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDatabase.swift; sourceTree = "<group>"; };
+		A42CC29621EA8FE70012CCD5 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		A42CC29821EA900B0012CCD5 /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		A45FFC5A21D4DA67003AE435 /* AutoWatchFaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoWatchFaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45FFC5D21D4DA67003AE435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45FFC5F21D4DA67003AE435 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,8 +94,6 @@
 		A45FFC8A21D4DA8D003AE435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45FFC9621D4DB3D003AE435 /* WatchScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WatchScene.sks; sourceTree = "<group>"; };
 		A45FFC9821D4DB4B003AE435 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
-		A48A8B1621DBE50B00B608B5 /* WatchSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettings.swift; sourceTree = "<group>"; };
-		A48A8B1821DBE57500B608B5 /* WatchSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSettingsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +117,9 @@
 		A406946F21DCED740023BCDB /* Watches */ = {
 			isa = PBXGroup;
 			children = (
-				A48A8B1621DBE50B00B608B5 /* WatchSettings.swift */,
-				A48A8B1821DBE57500B608B5 /* WatchSettingsManager.swift */,
+				A4125C3A21EE472300890FCE /* WatchDatabase.swift */,
+				A42CC29621EA8FE70012CCD5 /* Watch.swift */,
+				A42CC29821EA900B0012CCD5 /* WatchManager.swift */,
 			);
 			path = Watches;
 			sourceTree = "<group>";
@@ -311,10 +315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A406946C21DCE6F90023BCDB /* WatchSettingsManager.swift in Sources */,
 				A45FFC6021D4DA67003AE435 /* ViewController.swift in Sources */,
-				A406946B21DCE6F70023BCDB /* WatchSettings.swift in Sources */,
+				A4125C3B21EE472300890FCE /* WatchDatabase.swift in Sources */,
+				A42CC29721EA8FE70012CCD5 /* Watch.swift in Sources */,
 				A45FFC5E21D4DA67003AE435 /* AppDelegate.swift in Sources */,
+				A42CC29921EA900B0012CCD5 /* WatchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,11 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A48A8B1921DBE57500B608B5 /* WatchSettingsManager.swift in Sources */,
+				A43A913621EA9DFD00E1B875 /* Watch.swift in Sources */,
 				A45FFC8721D4DA8D003AE435 /* ExtensionDelegate.swift in Sources */,
+				A4125C3C21EE486E00890FCE /* WatchDatabase.swift in Sources */,
 				A45FFC9921D4DB4B003AE435 /* WatchScene.swift in Sources */,
-				A48A8B1721DBE50B00B608B5 /* WatchSettings.swift in Sources */,
 				A45FFC8321D4DA8D003AE435 /* InterfaceController.swift in Sources */,
+				A43A913521EA9DFA00E1B875 /* WatchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

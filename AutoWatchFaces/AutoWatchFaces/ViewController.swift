@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tableview: UITableView!
     
-    let watchList = WatchSettingsManager.watchSettingsList
+    let watchList = WatchDatabase().watchDatabase
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableview.delegate = self
         tableview.dataSource = self
         tableview.rowHeight = 112
+        
+        self.tableview.allowsSelection = true
+        
         
     }
     
@@ -34,7 +37,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WatchCell", for: indexPath)
         
-        cell.imageView?.image = UIImage(named: watchList[indexPath.row].dial)
+        cell.imageView?.image = UIImage(named: watchList[indexPath.row].dial!)
         
         cell.textLabel?.text = String(watchList[indexPath.row].name)
         cell.textLabel?.adjustsFontSizeToFitWidth = true
@@ -44,6 +47,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         return cell
     }
+    
     
 }
 

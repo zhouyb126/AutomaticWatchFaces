@@ -27,6 +27,16 @@
                                                 <action selector="longPressGesture:" destination="AgC-eL-Hgc" id="3SE-su-KWc"/>
                                             </connections>
                                         </longPressGestureRecognizer>
+                                        <swipeGestureRecognizer id="iyj-gx-WIl">
+                                            <connections>
+                                                <action selector="swipeRightGesture:" destination="AgC-eL-Hgc" id="eHv-zY-dgo"/>
+                                            </connections>
+                                        </swipeGestureRecognizer>
+                                        <swipeGestureRecognizer direction="2" id="oyc-Tc-2r8">
+                                            <connections>
+                                                <action selector="swipeLeftGesture:" destination="AgC-eL-Hgc" id="2tf-je-jko"/>
+                                            </connections>
+                                        </swipeGestureRecognizer>
                                     </gestureRecognizers>
                                 </spriteKitScene>
                             </items>

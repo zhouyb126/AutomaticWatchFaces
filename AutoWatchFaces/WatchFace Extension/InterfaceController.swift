@@ -14,9 +14,10 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     @IBOutlet weak var skInterface: WKInterfaceSKScene!
     
-    let watchList = WatchSettingsManager.watchSettingsList
+    let watchList = WatchDatabase.init().watchDatabase
     var crownAccumulator = 0.0
     
+    var alternativeWatchNb = 0
     
     
     //let currentDeviceSize = WKInterfaceDevice.current().screenBounds.size
@@ -25,9 +26,8 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
         super.awake(withContext: context)
         crownSequencer.delegate = self
         skInterface.isPaused = false
-        if let scene = WatchScene(fileNamed: "WatchScene"){
-            skInterface.presentScene(scene)
-        }
+        WatchManager.actualWatch = watchList[WatchManager.actualWatchNB]
+        setWatchFace()
         
     }
     
@@ -38,16 +38,24 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
         crownAccumulator += rotationalDelta
-        if (crownAccumulator > 0.5 && WatchSettingsManager.actualWatch < watchList.count-1){
-            WatchSettingsManager.actualWatch += 1
+        if (crownAccumulator > 0.5 && WatchManager.actualWatchNB < watchList.count-1){
+            WatchManager.actualWatchNB += 1
+            WatchManager.actualWatch = watchList[WatchManager.actualWatchNB]
             crownAccumulator = 0.0
             setWatchFace()
+            alternativeWatchNb = 0
         }
-        else if (crownAccumulator < -0.5 && WatchSettingsManager.actualWatch > 0){
-            WatchSettingsManager.actualWatch -= 1
+        else if (crownAccumulator < -0.5 && WatchManager.actualWatchNB > 0){
+            WatchManager.actualWatchNB -= 1
+            WatchManager.actualWatch = watchList[WatchManager.actualWatchNB]
             crownAccumulator = 0.0
             setWatchFace()
+            alternativeWatchNb = 0
         }
+        else if (crownAccumulator > 0.5 || crownAccumulator < -0.5){
+            WKInterfaceDevice.current().play(.click)
+        }
+        
     }
     
     func crownDidBecomeIdle(_ crownSequencer: WKCrownSequencer?) {
@@ -63,38 +71,19 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     
     @IBAction func tapGesture(_ sender: Any) {
-        let scene = WatchScene(fileNamed: "WatchScene")
-        let date = Date()
-        let calendar = Calendar.current        
-        let hour = CGFloat(calendar.component(.hour, from: date))
-        let minutes = CGFloat(calendar.component(.minute, from: date))
-        
-        let seconds = CGFloat(calendar.component(.second, from: date))
-        let nanoseconds = CGFloat(calendar.component(.nanosecond, from: date))
-        
-        if WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronograph == true {
+        if (WatchManager.actualWatch.chronograph != nil) {
             
-            if WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking! == false{
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking = true
+            if WatchManager.actualWatch.chronograph!.inWork == false{
                 
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographStarted = seconds + nanoseconds/pow(10,9)
-                
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographStarted = minutes+(seconds/60)
-                
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographStarted = (hour*30 + minutes/2)
+                WatchManager.actualWatch.chronograph!.startChronograph()
                 
             }
             else {
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking = false
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographSaved += (seconds + nanoseconds/pow(10,9)) - WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographStarted
-                
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographSaved += minutes+(seconds/60) - WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographStarted
-                
-                WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographSaved += (hour*30 + minutes/2) - WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographStarted
+                WatchManager.actualWatch.chronograph!.stopChronograph()
                 
             }
             
-            skInterface.presentScene(scene)
+            WKInterfaceDevice.current().play(.click)
         }
     }
     
@@ -102,14 +91,54 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     @IBAction func longPressGesture(_ sender: Any) {
         
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].chronographWorking = false
+        WatchManager.actualWatch.chronograph!.resetChronograph()
+        WKInterfaceDevice.current().play(.click)
+    }
+    
+    
+    @IBAction func swipeRightGesture(_ sender: Any) {
+        if alternativeWatchNb > 0{
+            if alternativeWatchNb == 1{
+                WatchManager.actualWatch = WatchDatabase.init().watchDatabase[WatchManager.actualWatchNB]
+                alternativeWatchNb = 0
+            }
+            else if (WatchManager.actualWatch.alternative.count > 0){
+                alternativeWatchNb -= 1
+                configureAlternativeWatch(watchList: watchList)
+                
+            }
+            setWatchFace()
+        }
+    }
+    
+    @IBAction func swipeLeftGesture(_ sender: Any) {
+        if (WatchManager.actualWatch.alternative.count > 0 && alternativeWatchNb < WatchManager.actualWatch.alternative.count){
+            alternativeWatchNb += 1
+            configureAlternativeWatch(watchList: watchList)
+            
+            setWatchFace()
+        }
+    }
+    
+    
+    func configureAlternativeWatch(watchList:[Watch]){
+        let alternativeWatch = watchList[WatchManager.actualWatchNB].alternative[alternativeWatchNb - 1]
+        if alternativeWatch!.dial != nil{
+            WatchManager.actualWatch.dial = alternativeWatch!.dial
+        }
+        if alternativeWatch!.secHand != nil{
+            WatchManager.actualWatch.secHand = alternativeWatch!.secHand
+        }
+        if alternativeWatch!.hourHand != nil{
+            WatchManager.actualWatch.hourHand = alternativeWatch!.hourHand
+        }
+        if alternativeWatch!.minHand != nil{
+            WatchManager.actualWatch.minHand = alternativeWatch!.minHand
+        }
         
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographStarted = 0
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].secondsChronographSaved = 0
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographStarted = 0
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].minutesChronographSaved = 0
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographStarted = 0
-        WatchSettingsManager.watchSettingsList[WatchSettingsManager.actualWatch].hoursChronographSaved = 0
+        if alternativeWatch!.date != nil{
+            WatchManager.actualWatch.date = alternativeWatch!.date
+        }
     }
 }
 
