@@ -45,9 +45,9 @@ For the moment 16 watchfaces are available, more will come very soon !
 ### Omega Seamaster
 ### Omega Speedmaster Professional (W/ Chronograph)
 
-### Philippe Patek Grande Complication (W/ Date, Day, Month, Day Cycle) Alternative version available.
+### Patek Philippe Grande Complication (W/ Date, Day, Month, Day Cycle) Alternative version available.
 ![GCAlt](https://i.ibb.co/zncxN8H/alter2.png)
-### Philippe Patek Nautilus (W/ Date)
+### Patek Philippe Nautilus (W/ Date)
 
 ### Rolex Day-Date (W/ Day)
 ### Rolex Daytona (W/ Chronograph)
@@ -65,7 +65,7 @@ For the moment 16 watchfaces are available, more will come very soon !
 ## Version 0.6
 - New complications support added (day, day cycle, month...) .
 - Minor adjustment on watchfaces.
-- Alternative watchfaces feature (different wathcfaces for a same model, change it with a swipe) .
+- Alternative watchfaces feature (different watchfaces for a same model, change it with a swipe) .
 - Philippe Patek Grande Complication watchface added.
 - Rolex DayDate watchface added
 - Rolex Submariner alternative version added.
@@ -94,6 +94,7 @@ For the moment 16 watchfaces are available, more will come very soon !
 - Tag Heuer Monaco watchface added
 
 # Future
+- Update watchfaces without Xcode (OTA database update).
 - More watchfaces and complications !
 
 FOR EDUCATIONAL PURPOSES ONLY
