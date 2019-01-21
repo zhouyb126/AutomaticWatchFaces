@@ -1,12 +1,14 @@
 ![Swift](https://img.shields.io/badge/language-Swift-orange.svg)
 
 # Automatic Watch Faces
-![AWFPresentation](https://i.ibb.co/Gctn5kC/AWF05.png)
+![AWFPresentation](https://i.ibb.co/px3tsNh/AWF0-7.png)
 
 # Description
 App using SpriteKit in order to simulate watchfaces (with complications) on WatchOS.
 
 AWF is battery friendly, the scene is running at 25 frames per second !
+
+###Join our Facebook group ! [Here] (https://www.facebook.com/groups/AWFgroup/)
 
 # Video (How to use)
 [![Youtube](https://img.youtube.com/vi/v9rcqk-8Afc/0.jpg)](https://youtu.be/v9rcqk-8Afc)
@@ -14,6 +16,8 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 # Installing
 [Video tutorial](https://youtu.be/-TS4ypziaMU)
+
+[Article/Guide from iSpazio](https://www.facebook.com/groups/AWFgroup/) Written by [Emanuele Esposito](https://www.instagram.com/emanuele_esp/)
 
 # Use
 - To change watches : Rotate the Digital Crown.
@@ -30,7 +34,11 @@ Look the previous video.
 - Under ‘ON SCREEN WAKE SHOW LAST APP’ select Always.
 
 # List of watchfaces
-For the moment 16 watchfaces are available, more will come very soon !
+More will come very soon !
+
+### Apple Hermes
+
+### Apple Nike + (Alternative versions available).
 
 ### Bell & Ross 01-94 (W/ Date & Chronograph)
 
@@ -38,16 +46,21 @@ For the moment 16 watchfaces are available, more will come very soon !
 
 ### Cartier Tank
 
-### Hermes Apple Watch
-
 ### Hublot Spirit of Big Bang (W/ Date)
+
+### IWC DaVinci Tourbillon (W/Chronograph & Tourbillon)
+![gif](https://media.giphy.com/media/NsESMeZvUqshx43dqM/giphy.gif)
 
 ### Omega Seamaster
 ### Omega Speedmaster Professional (W/ Chronograph)
 
-### Philippe Patek Grande Complication (W/ Date, Day, Month, Day Cycle) Alternative version available.
+### Panerai Luminor (W/Date & Battery Indicator)
+
+### Patek Philippe Grande Complication (W/ Date, Day, Month, Day Cycle) Alternative version available.
+
 ![GCAlt](https://i.ibb.co/zncxN8H/alter2.png)
-### Philippe Patek Nautilus (W/ Date)
+
+### Patek Philippe Nautilus (W/ Date)
 
 ### Rolex Day-Date (W/ Day)
 ### Rolex Daytona (W/ Chronograph)
@@ -62,10 +75,17 @@ For the moment 16 watchfaces are available, more will come very soon !
 
 # Updates
 
+## Version 0.7
+- New complications support added (tourbillon, battery Indicator...) .
+- Minor adjustment on watchfaces.
+- Apple Nike + watchface added.
+- IWC DaVinci Tourbillon added
+- Panerai Luminor added.
+
 ## Version 0.6
 - New complications support added (day, day cycle, month...) .
 - Minor adjustment on watchfaces.
-- Alternative watchfaces feature (different wathcfaces for a same model, change it with a swipe) .
+- Alternative watchfaces feature (different watchfaces for a same model, change it with a swipe) .
 - Philippe Patek Grande Complication watchface added.
 - Rolex DayDate watchface added
 - Rolex Submariner alternative version added.

@@ -20,6 +20,9 @@ class WatchScene: SKScene {
     var subHand3 : SKSpriteNode = SKSpriteNode()
     var dayCycle : SKSpriteNode = SKSpriteNode()
     var dayLabelSprite :  SKSpriteNode = SKSpriteNode()
+    var battery : SKSpriteNode = SKSpriteNode()
+    var balanceWheel : SKSpriteNode = SKSpriteNode()
+    var tourbillon : SKSpriteNode = SKSpriteNode()
     
     
     let watch = WatchManager.actualWatch
@@ -29,15 +32,16 @@ class WatchScene: SKScene {
         scene?.scaleMode = .aspectFit
         if let secHand : SKSpriteNode = self.childNode(withName: "SecondHand") as? SKSpriteNode{
             secondHand = secHand
+            
             if (watch.secHand != nil){
                 secondHand.texture = SKTexture(imageNamed: (watch.secHand?.image)!)
                 secondHand.xScale = CGFloat((watch.secHand?.scale)!)
                 secondHand.yScale = CGFloat((watch.secHand?.scale)!)
                 secondHand.position = CGPoint(x: (watch.secHand?.positionX)!, y: (watch.secHand?.positionY)!)
                 
-                if watch.chronograph?.secondOnTop == true {
-                    secondHand.zPosition = 0}
-                else{secondHand.zPosition = 2
+                if watch.secondOnTop == true {
+                    secondHand.zPosition = 5}
+                else{secondHand.zPosition = 0
                 }
                 
                 
@@ -54,6 +58,7 @@ class WatchScene: SKScene {
                 minuteHand.texture = SKTexture(imageNamed: (watch.minHand?.image)!)
                 minuteHand.xScale = CGFloat((watch.minHand?.scale)!)
                 minuteHand.yScale = CGFloat((watch.minHand?.scale)!)
+                minuteHand.zPosition = 4
             }
             else {
                 minuteHand.isHidden = true
@@ -66,6 +71,7 @@ class WatchScene: SKScene {
                 hourHand.texture = SKTexture(imageNamed: (watch.hourHand?.image)!)
                 hourHand.xScale = CGFloat((watch.hourHand?.scale)!)
                 hourHand.yScale = CGFloat((watch.hourHand?.scale)!)
+                hourHand.zPosition = 3
             }
             else{
                 hourHand.isHidden = true
@@ -79,6 +85,7 @@ class WatchScene: SKScene {
                 dateLabel.isHidden = false
                 dateLabel.position = CGPoint(x:(watch.date?.positionX)!, y: (watch.date?.positionY)!)
                 dateLabel.fontColor = watch.date?.color
+                dateLabel.zPosition = 1
             }
             else{
                 dateLabel.isHidden = true
@@ -102,8 +109,8 @@ class WatchScene: SKScene {
                 subHand1.position = CGPoint(x:(watch.chronograph?.secHand?.positionX)!, y: (watch.chronograph?.secHand?.positionY)!)
                 
                 if watch.chronograph?.secondOnTop == true {
-                    subHand1.zPosition = 2}
-                else{subHand1.zPosition = 0
+                    subHand1.zPosition = 0}
+                else{subHand1.zPosition = 5
                 }
             }
             else if watch.grandeComplication?.monthHand != nil{
@@ -120,6 +127,7 @@ class WatchScene: SKScene {
         
         if let SubHand2 : SKSpriteNode = self.childNode(withName: "SubHand2") as? SKSpriteNode{
             subHand2 = SubHand2
+            subHand2.zPosition = 2
             
             if watch.chronograph?.minuteHand != nil{
                 subHand2.texture = SKTexture(imageNamed: (watch.chronograph?.minuteHand?.image)!)
@@ -127,6 +135,7 @@ class WatchScene: SKScene {
                 subHand2.xScale = CGFloat((watch.chronograph?.minuteHand?.scale)!)
                 subHand2.yScale = CGFloat((watch.chronograph?.minuteHand?.scale)!)
                 subHand2.position = CGPoint(x:(watch.chronograph?.minuteHand?.positionX)!, y: (watch.chronograph?.minuteHand?.positionY)!)
+                
             }
                 
             else if watch.grandeComplication?.weekdayHand != nil{
@@ -144,6 +153,7 @@ class WatchScene: SKScene {
         
         if let SubHand3 : SKSpriteNode = self.childNode(withName: "SubHand3") as? SKSpriteNode{
             subHand3 = SubHand3
+            subHand3.zPosition = 1
             
             if watch.chronograph?.hourHand != nil{
                 subHand3.texture = SKTexture(imageNamed: (watch.chronograph?.hourHand?.image)!)
@@ -151,6 +161,7 @@ class WatchScene: SKScene {
                 subHand3.xScale = CGFloat((watch.chronograph?.hourHand?.scale)!)
                 subHand3.yScale = CGFloat((watch.chronograph?.hourHand?.scale)!)
                 subHand3.position = CGPoint(x:(watch.chronograph?.hourHand?.positionX)!, y: (watch.chronograph?.hourHand?.positionY)!)
+                
             } else if watch.grandeComplication?.dateHand != nil{
                 subHand3.texture = SKTexture(imageNamed: (watch.grandeComplication?.dateHand!.image)!)
                 subHand3.isHidden = false
@@ -189,10 +200,64 @@ class WatchScene: SKScene {
                 dayLabelSprite.position = CGPoint(x:(watch.day?.positionX)!, y: (watch.day?.positionY)!)
                 dayLabelSprite.xScale = CGFloat(watch.day!.xScale)
                 dayLabelSprite.yScale = CGFloat(watch.day!.yScale)
+                dayLabelSprite.zPosition = 1
                 
             }
             else{
                 dayLabelSprite.isHidden = true
+            }
+            
+            
+        }
+        
+        if let BatteryIndicator : SKSpriteNode = self.childNode(withName: "Battery") as? SKSpriteNode{
+            battery = BatteryIndicator
+            
+            if watch.battery != nil{
+                WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+                battery.texture = SKTexture(imageNamed: (watch.battery?.batteryHand?.image)!)
+                battery.isHidden = false
+                battery.position = CGPoint(x:(watch.battery?.batteryHand?.positionX)!, y: (watch.battery?.batteryHand?.positionY)!)
+                battery.xScale = CGFloat((watch.battery?.batteryHand?.scale)!)
+                battery.yScale = CGFloat((watch.battery?.batteryHand?.scale)!)
+                battery.zPosition = 1
+                
+            }
+            else{
+                battery.isHidden = true
+                WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
+            }
+            
+        }
+        
+        
+        if let BalanceWheel : SKSpriteNode = self.childNode(withName: "BalanceWheel") as? SKSpriteNode{
+            balanceWheel  = BalanceWheel
+            
+            if watch.skeleton != nil {
+                balanceWheel.isHidden = false
+                balanceWheel.texture = SKTexture(imageNamed: (watch.skeleton?.balanceWheel)!)
+                balanceWheel.zPosition = 1
+            }
+                
+            else{
+                balanceWheel.isHidden = true
+            }
+            
+            
+        }
+        
+        if let Tourbillion : SKSpriteNode = self.childNode(withName: "Tourbillon") as? SKSpriteNode{
+            tourbillon  = Tourbillion
+            
+            if watch.tourbillon != nil {
+                tourbillon.isHidden = false
+                tourbillon.texture = SKTexture(imageNamed: (watch.tourbillon?.tourbillion)!)
+                tourbillon.zPosition = 2
+            }
+                
+            else{
+                tourbillon.isHidden = true
             }
             
             
@@ -214,6 +279,7 @@ class WatchScene: SKScene {
         let seconds = CGFloat(calendar.component(.second, from: date))
         let nanoseconds = CGFloat(calendar.component(.nanosecond, from: date))
         let weekday = CGFloat(calendar.component(.weekday, from: date))
+        let day = CGFloat(calendar.component(.day, from: date))
         
         secondHand.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9))*6)
         minuteHand.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
@@ -228,40 +294,76 @@ class WatchScene: SKScene {
             dayLabelSprite.texture = SKTexture(imageNamed: (((watch.day?.getDayInString(day: (weekday-1)))!)))
         }
         
-        if WatchManager.actualWatch.chronograph != nil{
+        if watch.chronograph != nil{
             
-            if WatchManager.actualWatch.chronograph?.inWork == true{
-                subHand1.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9) -  WatchManager.actualWatch.chronograph!.secondsChronographStarted + WatchManager.actualWatch.chronograph!.secondsChronographSaved)*6)
+            
+            if watch.chronograph?.inWork == true{
+                subHand1.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9) -  watch.chronograph!.secondsChronographStarted + watch.chronograph!.secondsChronographSaved)*6)
                 
-                subHand2.zRotation = -1 * degreesToRadians((minutes+(seconds/60) -  WatchManager.actualWatch.chronograph!.minutesChronographStarted + WatchManager.actualWatch.chronograph!.minutesChronographSaved)*12)
+                let subHand2Degrees = (minutes+(seconds/60) -  watch.chronograph!.minutesChronographStarted + watch.chronograph!.minutesChronographSaved)
                 
-                subHand3.zRotation = -1 * degreesToRadians((hour*30 + minutes/2 -  WatchManager.actualWatch.chronograph!.hoursChronographStarted + WatchManager.actualWatch.chronograph!.hoursChronographSaved))
+                subHand2.zRotation = -1 * degreesToRadians(subHand2Degrees)*CGFloat((360/((watch.chronograph?.minuteDialNb)!)))
+                
+                subHand3.zRotation = -1 * degreesToRadians((hour*30 + minutes/2 -  watch.chronograph!.hoursChronographStarted + watch.chronograph!.hoursChronographSaved))
                 
             }
             else{
-                subHand1.zRotation = -1 * degreesToRadians((WatchManager.actualWatch.chronograph!.secondsChronographSaved)*6)
+                subHand1.zRotation = -1 * degreesToRadians((watch.chronograph!.secondsChronographSaved)*6)
                 
-                subHand2.zRotation = -1 * degreesToRadians((WatchManager.actualWatch.chronograph!.minutesChronographSaved)*12)
+                subHand2.zRotation = -1 * degreesToRadians((watch.chronograph!.minutesChronographSaved)*CGFloat((360/((watch.chronograph?.minuteDialNb)!))))
                 
-                subHand3.zRotation = -1 * degreesToRadians((WatchManager.actualWatch.chronograph!.hoursChronographSaved))
+                subHand3.zRotation = -1 * degreesToRadians((watch.chronograph!.hoursChronographSaved))
+                
             }
             
         }
         
-        if WatchManager.actualWatch.grandeComplication != nil{
+        if watch.grandeComplication != nil{
             let month = CGFloat(calendar.component(.month, from: date))
             let weekday = CGFloat(calendar.component(.weekday, from: date))
-            let day = CGFloat(calendar.component(.day, from: date))
             
             
             subHand1.zRotation = -1 * degreesToRadians((month-1)*30)
             subHand2.zRotation = -1 * degreesToRadians((weekday-1)*(360/7))
-            subHand3.zRotation = -1 * degreesToRadians((day-1)*12)
+            subHand3.zRotation = -1 * degreesToRadians((day-1)*(360/31))
         }
         
-        if WatchManager.actualWatch.dayCycle != nil{
+        if watch.dayCycle != nil{
             dayCycle.zRotation = -1 * degreesToRadians(hour*15 + minutes/2)
             
+        }
+        
+        
+        if watch.battery != nil{
+            let batteryPercentage = WKInterfaceDevice.current().batteryLevel
+            
+            if batteryPercentage < 0.5{
+                battery.zRotation = 1 * degreesToRadians((0.5 - CGFloat(batteryPercentage))*180)
+            }
+            else {
+                battery.zRotation = -1 * degreesToRadians((CGFloat(batteryPercentage)-0.5)*180)
+            }
+            
+        }
+        
+        if watch.skeleton != nil{
+            if watch.skeleton?.counterclockwise == false && (watch.skeleton?.movement)! < 3{
+                balanceWheel.zRotation = -1 * degreesToRadians(8)
+                watch.skeleton?.movement += 1
+            }
+            else {
+                watch.skeleton?.counterclockwise = true
+                balanceWheel.zRotation = 1 * degreesToRadians(8)
+                watch.skeleton?.movement -= 1
+                if watch.skeleton?.movement == 0{
+                    watch.skeleton?.counterclockwise = false
+                }
+            }
+            
+        }
+        
+        if watch.tourbillon != nil{
+            tourbillon.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9))*12)
         }
         
         

@@ -26,8 +26,8 @@
 		A45FFC8721D4DA8D003AE435 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FFC8621D4DA8D003AE435 /* ExtensionDelegate.swift */; };
 		A45FFC8921D4DA8D003AE435 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45FFC8821D4DA8D003AE435 /* Assets.xcassets */; };
 		A45FFC8D21D4DA8D003AE435 /* WatchFace.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A45FFC7121D4DA8C003AE435 /* WatchFace.app */; };
-		A45FFC9721D4DB3D003AE435 /* WatchScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A45FFC9621D4DB3D003AE435 /* WatchScene.sks */; };
 		A45FFC9921D4DB4B003AE435 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FFC9821D4DB4B003AE435 /* WatchScene.swift */; };
+		A4FA4B1521F640EC00832C86 /* WatchScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A4FA4B1421F640EC00832C86 /* WatchScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +92,8 @@
 		A45FFC8621D4DA8D003AE435 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		A45FFC8821D4DA8D003AE435 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A45FFC8A21D4DA8D003AE435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A45FFC9621D4DB3D003AE435 /* WatchScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WatchScene.sks; sourceTree = "<group>"; };
 		A45FFC9821D4DB4B003AE435 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
+		A4FA4B1421F640EC00832C86 /* WatchScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WatchScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				A45FFC8221D4DA8D003AE435 /* InterfaceController.swift */,
-				A45FFC9621D4DB3D003AE435 /* WatchScene.sks */,
+				A4FA4B1421F640EC00832C86 /* WatchScene.sks */,
 				A45FFC9821D4DB4B003AE435 /* WatchScene.swift */,
 				A45FFC8621D4DA8D003AE435 /* ExtensionDelegate.swift */,
 				A45FFC8821D4DA8D003AE435 /* Assets.xcassets */,
@@ -303,7 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A45FFC9721D4DB3D003AE435 /* WatchScene.sks in Resources */,
+				A4FA4B1521F640EC00832C86 /* WatchScene.sks in Resources */,
 				A45FFC8921D4DA8D003AE435 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

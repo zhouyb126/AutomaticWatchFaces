@@ -14,19 +14,17 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     @IBOutlet weak var skInterface: WKInterfaceSKScene!
     
-    let watchList = WatchDatabase.init().watchDatabase
     var crownAccumulator = 0.0
     
     var alternativeWatchNb = 0
     
     
-    //let currentDeviceSize = WKInterfaceDevice.current().screenBounds.size
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         crownSequencer.delegate = self
         skInterface.isPaused = false
-        WatchManager.actualWatch = watchList[WatchManager.actualWatchNB]
+        WatchManager.actualWatch = WatchManager.watchList[WatchManager.actualWatchNB]
         setWatchFace()
         
     }
@@ -38,19 +36,19 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
         crownAccumulator += rotationalDelta
-        if (crownAccumulator > 0.5 && WatchManager.actualWatchNB < watchList.count-1){
+        if (crownAccumulator > 0.5 && WatchManager.actualWatchNB < WatchManager.watchList.count-1){
             WatchManager.actualWatchNB += 1
-            WatchManager.actualWatch = watchList[WatchManager.actualWatchNB]
+            alternativeWatchNb = 0
+            WatchManager.actualWatch = WatchDatabase.init().watchDatabase[WatchManager.actualWatchNB]
             crownAccumulator = 0.0
             setWatchFace()
-            alternativeWatchNb = 0
         }
         else if (crownAccumulator < -0.5 && WatchManager.actualWatchNB > 0){
             WatchManager.actualWatchNB -= 1
-            WatchManager.actualWatch = watchList[WatchManager.actualWatchNB]
+            alternativeWatchNb = 0
+            WatchManager.actualWatch = WatchDatabase.init().watchDatabase[WatchManager.actualWatchNB]
             crownAccumulator = 0.0
             setWatchFace()
-            alternativeWatchNb = 0
         }
         else if (crownAccumulator > 0.5 || crownAccumulator < -0.5){
             WKInterfaceDevice.current().play(.click)
@@ -67,6 +65,7 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
             scene.scaleMode = .aspectFit
             skInterface.presentScene(scene)
         }
+        
     }
     
     
@@ -104,7 +103,7 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
             }
             else if (WatchManager.actualWatch.alternative.count > 0){
                 alternativeWatchNb -= 1
-                configureAlternativeWatch(watchList: watchList)
+                WatchManager.configureAlternativeWatch(alternativeWatchNb: alternativeWatchNb)
                 
             }
             setWatchFace()
@@ -114,32 +113,13 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
     @IBAction func swipeLeftGesture(_ sender: Any) {
         if (WatchManager.actualWatch.alternative.count > 0 && alternativeWatchNb < WatchManager.actualWatch.alternative.count){
             alternativeWatchNb += 1
-            configureAlternativeWatch(watchList: watchList)
+            WatchManager.configureAlternativeWatch(alternativeWatchNb: alternativeWatchNb)
             
             setWatchFace()
         }
     }
     
     
-    func configureAlternativeWatch(watchList:[Watch]){
-        let alternativeWatch = watchList[WatchManager.actualWatchNB].alternative[alternativeWatchNb - 1]
-        if alternativeWatch!.dial != nil{
-            WatchManager.actualWatch.dial = alternativeWatch!.dial
-        }
-        if alternativeWatch!.secHand != nil{
-            WatchManager.actualWatch.secHand = alternativeWatch!.secHand
-        }
-        if alternativeWatch!.hourHand != nil{
-            WatchManager.actualWatch.hourHand = alternativeWatch!.hourHand
-        }
-        if alternativeWatch!.minHand != nil{
-            WatchManager.actualWatch.minHand = alternativeWatch!.minHand
-        }
-        
-        if alternativeWatch!.date != nil{
-            WatchManager.actualWatch.date = alternativeWatch!.date
-        }
-    }
 }
 
 // Hack in order to disable the digital time on the screen

@@ -21,8 +21,12 @@ class Watch{
     let dayCycle :DayCycle?
     let day: Day?
     let alternative :[Watch?]
+    let battery : Battery?
+    let skeleton : Skeleton?
+    let tourbillon : Tourbillon?
+    let secondOnTop : Bool?
     
-    init(name:String,dial:String?=nil,secHand:Hand?=nil,minHand:Hand?=nil,hourHand:Hand?=nil,date:WatchDate?=nil,chronograph:Chronograph?=nil,grandeComplication:GrandeComplication?=nil,dayCycle:DayCycle? = nil,day:Day?=nil,alternative:[Watch?]=[]) {
+    init(name:String,dial:String?=nil,secHand:Hand?=nil,minHand:Hand?=nil,hourHand:Hand?=nil,date:WatchDate?=nil,chronograph:Chronograph?=nil,grandeComplication:GrandeComplication?=nil,dayCycle:DayCycle? = nil,day:Day?=nil,alternative:[Watch?]=[],battery:Battery?=nil,skeleton:Skeleton?=nil,tourbillon:Tourbillon?=nil,secondOnTop:Bool? = true) {
         self.name = name
         self.date = date
         self.minHand = minHand
@@ -34,6 +38,10 @@ class Watch{
         self.dayCycle = dayCycle
         self.day = day
         self.alternative = alternative
+        self.battery = battery
+        self.skeleton = skeleton
+        self.tourbillon = tourbillon
+        self.secondOnTop = secondOnTop
     }
 }
 
@@ -41,6 +49,7 @@ class Chronograph{
     let secHand: Hand?
     let minuteHand: Hand?
     let hourHand : Hand?
+    let minuteDialNb : Int?
     let secondOnTop: Bool?
     
     var secondsChronographStarted: CGFloat = 0
@@ -55,11 +64,12 @@ class Chronograph{
     
     var inWork:Bool = false
     
-    init(secHand:Hand?=nil,minuteHand:Hand?=nil,hourHand:Hand?=nil,secondOnTop:Bool?=true) {
+    init(secHand:Hand?=nil,minuteHand:Hand?=nil,hourHand:Hand?=nil,secondOnTop:Bool?=false,minuteDialNb : Int?=30) {
         self.secHand = secHand
         self.minuteHand = minuteHand
         self.hourHand = hourHand
         self.secondOnTop = secondOnTop
+        self.minuteDialNb = minuteDialNb
     }
     
     func startChronograph(){
@@ -188,4 +198,46 @@ class Day{
         return ("\(dayPrefix)\(days[Int(day)])")
     }
 }
+
+class Battery{
+    let batteryHand : Hand?
+    
+    init(batteryHand:Hand?=nil) {
+        self.batteryHand = batteryHand
+    }
+}
+
+
+class Skeleton{
+    let balanceWheel: String
+    var positionX: Double?
+    var positionY: Double?
+    var movement = 0
+    var counterclockwise = false
+    
+    
+    
+    init(balanceWheel:String,positionX:Double?=0,positionY:Double?=0){
+        self.balanceWheel = balanceWheel
+        self.positionX = positionX
+        self.positionY = positionY
+        
+    }
+    
+}
+
+class Tourbillon{
+    let tourbillion : String
+    
+    init(tourbillion:String) {
+        self.tourbillion = tourbillion
+    }
+}
+
+
+
+
+
+
+
 
