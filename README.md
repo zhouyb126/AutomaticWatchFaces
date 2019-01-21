@@ -114,6 +114,7 @@ More will come very soon !
 - Tag Heuer Monaco watchface added
 
 # Future
+- Update watchfaces without Xcode (OTA database update).
 - More watchfaces and complications !
 
 FOR EDUCATIONAL PURPOSES ONLY
