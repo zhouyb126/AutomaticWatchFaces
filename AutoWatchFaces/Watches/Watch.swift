@@ -46,9 +46,9 @@ class Watch{
 }
 
 class Chronograph{
-    let secHand: Hand?
-    let minuteHand: Hand?
-    let hourHand : Hand?
+    var secHand: Hand?
+    var minuteHand: Hand?
+    var hourHand : Hand?
     let minuteDialNb : Int?
     let secondOnTop: Bool?
     
@@ -141,11 +141,11 @@ class Hand{
 }
 
 class WatchDate{
-    let positionX:Double
-    let positionY: Double
+    let positionX:Double?
+    let positionY: Double?
     let color: UIColor
     
-    init(positionX:Double,positionY:Double,color:UIColor) {
+    init(positionX:Double?=0,positionY:Double?=0,color:UIColor) {
         self.positionX = positionX
         self.positionY = positionY
         self.color = color

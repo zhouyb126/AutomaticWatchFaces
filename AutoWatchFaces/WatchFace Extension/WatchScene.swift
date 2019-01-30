@@ -285,6 +285,14 @@ class WatchScene: SKScene {
         minuteHand.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
         hourHand.zRotation = -1 * degreesToRadians(hour*30 + minutes/2)
         
+//        secondHand.zRotation = -1 * degreesToRadians(0)
+//        minuteHand.zRotation = -1 * degreesToRadians(15*6)
+//        hourHand.zRotation = -1 * degreesToRadians(9*30)
+        
+//        secondHand.zRotation = -1 * degreesToRadians(0)
+//        minuteHand.zRotation = -1 * degreesToRadians(0)
+//        hourHand.zRotation = -1 * degreesToRadians(0)
+//        
         
         if watch.date != nil{
             dateLabel.text = String(calendar.component(.day, from: date))

@@ -7,8 +7,11 @@
 App using SpriteKit in order to simulate watchfaces (with complications) on WatchOS.
 
 AWF is battery friendly, the scene is running at 25 frames per second !
+![select](https://media.giphy.com/media/dJsaNZ0eUrBhcGhaEW/giphy.gif)
+
 
 ###Join our Facebook group ! [Here] (https://www.facebook.com/groups/AWFgroup/)
+
 
 # Video (How to use)
 [![Youtube](https://img.youtube.com/vi/v9rcqk-8Afc/0.jpg)](https://youtu.be/v9rcqk-8Afc)
@@ -20,7 +23,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 [Article/Guide from iSpazio](https://www.facebook.com/groups/AWFgroup/) Written by [Emanuele Esposito](https://www.instagram.com/emanuele_esp/)
 
 # Use
-- To change watches : Rotate the Digital Crown.
+- To change watches : Rotate the Digital Crown. You can now do it with your iPhone !
 - To change watchfaces on same model : Swipe to the right/left.
 - To play/pause the chronograph function : One tap on the watchface.
 - To reset the chronograph function : Long press on the watchface.
@@ -36,57 +39,72 @@ Look the previous video.
 # List of watchfaces
 More will come very soon !
 
-### Apple Hermes
+### Apple Hermes (W/ Date) alternative versions available
+### Apple Nike + (alternative versions available)
 
-### Apple Nike + (Alternative versions available).
+### Audemards Piguet Royal Oak (alternative versions available)
 
 ### Bell & Ross 01-94 (W/ Date & Chronograph)
 
 ### Breitling Avenger Blackbird (W/ Date)
 
-### Cartier Tank
+### Cartier Tank (alternative versions available)
 
 ### Hublot Spirit of Big Bang (W/ Date)
 
 ### IWC DaVinci Tourbillon (W/Chronograph & Tourbillon)
 ![gif](https://media.giphy.com/media/NsESMeZvUqshx43dqM/giphy.gif)
 
+### Mondaine (alternative versions available)
+
 ### Omega Seamaster
 ### Omega Speedmaster Professional (W/ Chronograph)
 
 ### Panerai Luminor (W/Date & Battery Indicator)
 
-### Patek Philippe Grande Complication (W/ Date, Day, Month, Day Cycle) Alternative version available.
-
+### Patek Philippe Grande Complication (W/ Date, Day, Month, Day Cycle) alternative version available
 ![GCAlt](https://i.ibb.co/zncxN8H/alter2.png)
 
-### Patek Philippe Nautilus (W/ Date)
+### Patek Philippe Nautilus (W/ Date) alternative version available
 
-### Rolex Day-Date (W/ Day)
-### Rolex Daytona (W/ Chronograph)
+### Rolex Day-Date (W/ Day) alternative version available
+### Rolex Daytona (W/ Chronograph) alternative version available
 ### Rolex Explorer II (W/ Date)
 ### Rolex Milgauss
-### Rolex Submariner (W/ Date) Alternative version available.
+### Rolex Submariner (W/ Date) Alternative version available
 ![SubAlt](https://i.ibb.co/mHL77vR/Alternate1.png)
 
 ### Seiko SKX007 (W/ Date)
 
-### Tag Heuer Monaco (W/ Date & Chronograph)
+### Tag Heuer Monaco (W/ Date & Chronograph) alternative version available
 
 # Updates
+
+## Version 0.8
+- iPhone watchface selection feature added.
+
+- Adjustment on watchfaces.
+- Audemards Piguet Royal Oak watchface added with alternative version.
+- Mondaine watchface added with alternative version.
+- Patek Philippe Grande Complication background color on day cycle added.
+- Patek Philippe Nautilus alternative watchfaces added.
+- Rolex DayDate alternative watchface added.
+- Rolex Daytona alternative watchfaces added.
+- Tag Heuer Monaco alternative watchfaces added.
+
 
 ## Version 0.7
 - New complications support added (tourbillon, battery Indicator...) .
 - Minor adjustment on watchfaces.
 - Apple Nike + watchface added.
-- IWC DaVinci Tourbillon added
+- IWC DaVinci Tourbillon added.
 - Panerai Luminor added.
 
 ## Version 0.6
 - New complications support added (day, day cycle, month...) .
 - Minor adjustment on watchfaces.
 - Alternative watchfaces feature (different watchfaces for a same model, change it with a swipe) .
-- Philippe Patek Grande Complication watchface added.
+- Patek Philippe Grande Complication watchface added.
 - Rolex DayDate watchface added
 - Rolex Submariner alternative version added.
 
@@ -106,7 +124,7 @@ More will come very soon !
 ## Version 0.3
 - Minor adjustment on watchfaces.
 - Breitling Avenger Blackbird watchface added.
-- Philippe Patek Nautilus watchface added.
+- Patek Philippe Nautilus watchface added.
 - Omega Speedmaster Professional watchface added.
 
 ## Version 0.2
@@ -114,7 +132,6 @@ More will come very soon !
 - Tag Heuer Monaco watchface added
 
 # Future
-- Update watchfaces without Xcode (OTA database update).
 - More watchfaces and complications !
 
 FOR EDUCATIONAL PURPOSES ONLY

@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,WCSessionDelegate {
+    
+    
     @IBOutlet weak var tableview: UITableView!
     
     let watchList = WatchDatabase().watchDatabase
+    var session : WCSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.tableview.allowsSelection = true
         
+        if (WCSession.isSupported()) {
+            session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         
     }
     
@@ -48,6 +57,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        session.sendMessage(["CurrentWatch": indexPath.row], replyHandler: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
     
 }
 
