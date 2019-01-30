@@ -2,6 +2,7 @@
 
 # Automatic Watch Faces
 ![AWFPresentation](https://i.ibb.co/px3tsNh/AWF0-7.png)
+###### Original mockup [credits](https://twitter.com/iamfaysal)
 
 # Description
 App using SpriteKit in order to simulate watchfaces (with complications) on WatchOS.
@@ -10,7 +11,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 ![select](https://media.giphy.com/media/dJsaNZ0eUrBhcGhaEW/giphy.gif)
 
 
-###Join our Facebook group ! [Here] (https://www.facebook.com/groups/AWFgroup/)
+### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
 
 
 # Video (How to use)
