@@ -23,6 +23,16 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 [Article/Guide from iSpazio](https://www.facebook.com/groups/AWFgroup/) Written by [Emanuele Esposito](https://www.instagram.com/emanuele_esp/)
 
+
+1. Clone the repository on your Mac:
+   git clone git@github.com:ElChoquito/AutomaticWatchFaces.git
+2. Open the project with Xcode
+3. Use the global "Search" feature to search for B36TV8BA3C , open each occurrency and, using the drop down menu, select your own "team" (usually it will be your name)
+4. Still with the "Search" feature, search for SylvainGuillier and replace it with your name (e.g. NameSurname)
+5. Connect your iPhone and build the project
+6. Try running the app on your iPhone, instructions will be displayed to authorize your app to be ran on the iPhone
+
+
 # Use
 - To change watches : Rotate the Digital Crown. You can now do it with your iPhone !
 - To change watchfaces on same model : Swipe to the right/left.
