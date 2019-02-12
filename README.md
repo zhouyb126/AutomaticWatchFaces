@@ -15,6 +15,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 
 # Video (How to use)
+[![Youtube](https://img.youtube.com/vi/JDg5gp0ZcOI/0.jpg)](https://youtu.be/JDg5gp0ZcOI)
 [![Youtube](https://img.youtube.com/vi/v9rcqk-8Afc/0.jpg)](https://youtu.be/v9rcqk-8Afc)
 
 
@@ -23,11 +24,37 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 [Article/Guide from iSpazio](https://www.facebook.com/groups/AWFgroup/) Written by [Emanuele Esposito](https://www.instagram.com/emanuele_esp/)
 
+
+
+1. Clone the repository on your Mac:
+
+   `git clone git@github.com:ElChoquito/AutomaticWatchFaces.git`
+
+2. Open the project with Xcode
+
+3. Use the global "Search" feature to search for `B36TV8BA3C` , open each occurrency and, using the drop down menu, select your own "team" (usually it will be your name)
+
+4. Still with the "Search" feature, search for `SylvainGuillier` and replace it with your name (e.g. `NameSurname`)
+
+5. Connect your iPhone and build the project
+
+6. Try running the app on your iPhone, instructions will be displayed to authorize your app to be ran on the iPhone
+
+
+
 # Use
 - To change watches : Rotate the Digital Crown. You can now do it with your iPhone !
 - To change watchfaces on same model : Swipe to the right/left.
 - To play/pause the chronograph function : One tap on the watchface.
 - To reset the chronograph function : Long press on the watchface.
+
+- To select a watchface as favorite : Select your watchface -> Use Force Touch -> Click on favorite icon.
+
+- To set the 2nd hour hand: Select a Gmt watchface (Rolex Explorer II for the moment) -> Use Force Touch -> Click on Gmt icon -> Rotate the digital crown to set the 2nd hour hand -> Use Force touch again and click on Gmt icon in order to save the settigns.
+
+- To enable night mode: Select a night mode compatible watchface (Rolex Submariner for example) -> Use Force Touch -> Click on Night Mode. Do the same thing to disable the night mode.
+
+- To disable/enable the Digital Crown rotation (watchfaces selection) : Use Force Touch -> Click on Crown Rotation icon.
 
 Look the previous video.
 
@@ -41,11 +68,14 @@ Look the previous video.
 More will come very soon !
 
 ### Apple Hermes (W/ Date) alternative versions available
+### Apple Hermes bicolour alternative versions available
 ### Apple Nike + (alternative versions available)
 
 ### Audemards Piguet Royal Oak (alternative versions available)
+### Audemards Piguet Royal Oak Chronograph (W/ Chronograph) alternative versions available
 
-### Bell & Ross 01-94 (W/ Date & Chronograph)
+
+### Bell & Ross 01-94 (W/ Date & Chronograph) alternative version available
 
 ### Breitling Avenger Blackbird (W/ Date)
 
@@ -56,10 +86,10 @@ More will come very soon !
 ### IWC DaVinci Tourbillon (W/Chronograph & Tourbillon)
 ![gif](https://media.giphy.com/media/NsESMeZvUqshx43dqM/giphy.gif)
 
-### Mondaine (alternative versions available)
+### Mondaine (W/ Stop2Go) alternative version available
 
 ### Omega Seamaster
-### Omega Speedmaster Professional (W/ Chronograph)
+### Omega Speedmaster Professional (W/ Chronograph) alternative version available
 
 ### Panerai Luminor (W/Date & Battery Indicator)
 
@@ -70,9 +100,10 @@ More will come very soon !
 
 ### Rolex Day-Date (W/ Day) alternative version available
 ### Rolex Daytona (W/ Chronograph) alternative version available
-### Rolex Explorer II (W/ Date)
+### Rolex Explorer II (W/ Date) night version available
 ### Rolex Milgauss
-### Rolex Submariner (W/ Date) Alternative version available
+### Rolex Sea Dweller night version available
+### Rolex Submariner (W/ Date) night & alternative version available
 ![SubAlt](https://i.ibb.co/mHL77vR/Alternate1.png)
 
 ### Seiko SKX007 (W/ Date)
@@ -80,6 +111,28 @@ More will come very soon !
 ### Tag Heuer Monaco (W/ Date & Chronograph) alternative version available
 
 # Updates
+## Version 0.9
+- Complication feature added for offical watchfaces ! Jump into AWF instantly.
+
+- Favorite feature added.
+- Night mode feature added.
+- Enable/ disable crown rotation feature added.
+- Gmt complication added.
+- Stop2Clock complication added.
+- BiColour complication added.
+
+- Adjustment on watchfaces.
+- Audemards Piguet Royal Oak Chronograph (W/ Chronograph) and alternative versions added (by [sz_geri](https://www.instagram.com/sz_geri/) )
+- Audemards Piguet Royal Oak alternative versions added (by [sz_geri](https://www.instagram.com/sz_geri/)).
+- Rolex Sea Dweller watchface added with night version (by Revo G).
+- Apple Hermes bicolour watchface added with alternative version.
+- Rolex Explorer II night version and GMT complication added.
+- Rolex Submariner night version added.
+- Bell & Ross 01-94 alternative version added.
+- Omega Speedmaster Professional alternative version added.
+- Tag Heuer Monaco alternative version added (by Revo G).
+- Mondaine Stop2Go complication added.
+
 
 ## Version 0.8
 - iPhone watchface selection feature added.

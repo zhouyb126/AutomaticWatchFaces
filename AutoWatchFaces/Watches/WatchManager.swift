@@ -1,5 +1,5 @@
 //
-//  swift
+//  WatchManager.swift
 //  AutoWatchFaces
 //
 //  Created by Sylvain Guillier on 12/01/2019.
@@ -8,75 +8,119 @@
 
 import Foundation
 class WatchManager{
-    static var watchList: [Watch] {return WatchDatabase.init().watchDatabase
-    }
+    static var watchList: [Watch] {return WatchDatabase.init().watchDatabase}
     
     
     static var actualWatchNB = 0
-    static var actualWatch = Watch(name: "", dial: "")
-    static var alternativeWatchNb = 0
+    static var actualAlternativeWatchNB = 0
+    static var actualWatch = Watch(id: 0, name: "", dial: "")
+    static var inSettings = false
+    static var crownLocked = false
+    static var timeZone = UserDefaults.standard.value(forKey: "timeZone") as? Int
+    static var nightMode = false
     
     static func configureAlternativeWatch(){
-        let alternativeWatch = watchList[actualWatchNB].alternative[alternativeWatchNb - 1]
+        if actualAlternativeWatchNB != 0{
+            let alternativeWatch = WatchManager.watchList[actualWatchNB].alternative[actualAlternativeWatchNB - 1]
         if alternativeWatch!.dial != nil{
-            actualWatch.dial = alternativeWatch!.dial
+            WatchManager.actualWatch.dial = alternativeWatch!.dial
         }
         
         if alternativeWatch!.secHand != nil{
-            actualWatch.secHand = alternativeWatch!.secHand
+            WatchManager.actualWatch.secHand = alternativeWatch!.secHand
         }
         else{
-            actualWatch.secHand = watchList[actualWatchNB].secHand
+            WatchManager.actualWatch.secHand = WatchManager.watchList[actualWatchNB].secHand
         }
         if alternativeWatch!.hourHand != nil{
-            actualWatch.hourHand = alternativeWatch!.hourHand
+            WatchManager.actualWatch.hourHand = alternativeWatch!.hourHand
         }
         else{
-            actualWatch.hourHand = watchList[actualWatchNB].hourHand
+            WatchManager.actualWatch.hourHand = WatchManager.watchList[actualWatchNB].hourHand
         }
         if alternativeWatch!.minHand != nil{
-            actualWatch.minHand = alternativeWatch!.minHand
+            WatchManager.actualWatch.minHand = alternativeWatch!.minHand
         }
         else{
-            actualWatch.minHand = watchList[actualWatchNB].minHand
+            WatchManager.actualWatch.minHand = WatchManager.watchList[actualWatchNB].minHand
         }
         
         if alternativeWatch!.date != nil{
-            actualWatch.date = alternativeWatch!.date
+            WatchManager.actualWatch.date = alternativeWatch!.date
         }
         else{
-            actualWatch.date = watchList[actualWatchNB].date
+            WatchManager.actualWatch.date = WatchManager.watchList[actualWatchNB].date
         }
         
         if alternativeWatch?.chronograph != nil{
         if alternativeWatch!.chronograph?.secHand != nil{
-            actualWatch.chronograph?.secHand = alternativeWatch!.chronograph?.secHand
+            WatchManager.actualWatch.chronograph?.secHand = alternativeWatch!.chronograph?.secHand
         }
         else{
-            actualWatch.chronograph?.secHand = watchList[actualWatchNB].chronograph?.secHand
+            WatchManager.actualWatch.chronograph?.secHand = WatchManager.watchList[actualWatchNB].chronograph?.secHand
         }
             
             if alternativeWatch!.chronograph?.minuteHand != nil{
-                actualWatch.chronograph?.minuteHand = alternativeWatch!.chronograph?.minuteHand
+                WatchManager.actualWatch.chronograph?.minuteHand = alternativeWatch!.chronograph?.minuteHand
             }
             else{
-                actualWatch.chronograph?.minuteHand = watchList[actualWatchNB].chronograph?.minuteHand
+                WatchManager.actualWatch.chronograph?.minuteHand = WatchManager.watchList[actualWatchNB].chronograph?.minuteHand
             }
             
             if alternativeWatch!.chronograph?.hourHand != nil{
-                actualWatch.chronograph?.hourHand = alternativeWatch!.chronograph?.hourHand
+                WatchManager.actualWatch.chronograph?.hourHand = alternativeWatch!.chronograph?.hourHand
             }
             else{
-                actualWatch.chronograph?.hourHand = watchList[actualWatchNB].chronograph?.hourHand
+                WatchManager.actualWatch.chronograph?.hourHand = WatchManager.watchList[actualWatchNB].chronograph?.hourHand
             }
-
+            
     }
+            if alternativeWatch!.biColour != nil{
+                WatchManager.actualWatch.biColour = alternativeWatch!.biColour
+            }
+            else{
+                WatchManager.actualWatch.biColour = WatchManager.watchList[actualWatchNB].biColour
+            }
+        }
+        
         
     
 }
+    
+    static func nextWatchface(){
+        actualWatchNB += 1
+        actualAlternativeWatchNB = 0
+    }
+    
+    static func previousWatchface(){
+       actualWatchNB -= 1
+       actualAlternativeWatchNB = 0
+    }
 
-
-
+    static func setFavoriteWatchFace(){
+        let defaults = UserDefaults()
+        defaults.set(actualAlternativeWatchNB, forKey: "favAlternateNb")
+        defaults.set(actualWatchNB, forKey: "favWatchNb")
+        print(actualWatchNB)
+        print(actualAlternativeWatchNB)
+    }
+    
+    static func getInitialWatchface(){
+        let defaults = UserDefaults()
+        if let watchNb = defaults.value(forKey: "favWatchNb"){
+            actualWatchNB = watchNb as! Int
+            print(actualWatchNB)
+        }
+        if let alternateWatchNb = defaults.value(forKey: "favAlternateNb"){
+            actualAlternativeWatchNB = alternateWatchNb as! Int
+            print(actualAlternativeWatchNB)
+        }
+    }
+    
+    static func getWatchface(at indice:Int) -> Watch{
+        return watchList[indice]
+        
+    }
 
 
 }

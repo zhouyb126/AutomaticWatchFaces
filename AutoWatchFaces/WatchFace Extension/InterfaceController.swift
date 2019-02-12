@@ -16,6 +16,7 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
     
     var crownAccumulator = 0.0
     var session : WCSession!
+    var timeZone = 0
     
     var currentWatch :Watch!{
         didSet{
@@ -25,11 +26,14 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
     }
     
     
-    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         crownSequencer.delegate = self
         skInterface.isPaused = false
+        WatchManager.getInitialWatchface()
+        currentWatch = WatchManager.watchList[WatchManager.actualWatchNB]
+        WatchManager.configureAlternativeWatch()
+        setWatchFace()
         
     }
     
@@ -38,33 +42,45 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
             session = WCSession.default
             session.delegate = self
             session.activate()
-    }
+        }
     }
     override func didAppear() {
         hideTime()
         crownSequencer.focus()
-        currentWatch = WatchManager.watchList[WatchManager.actualWatchNB]
+        
+        
     }
+    
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
         crownAccumulator += rotationalDelta
-        if (crownAccumulator > 0.5 && WatchManager.actualWatchNB < WatchManager.watchList.count-1){
-            WatchManager.actualWatchNB += 1
-            WatchManager.alternativeWatchNb = 0
-            currentWatch = WatchManager.watchList[WatchManager.actualWatchNB]
-            crownAccumulator = 0.0
+        if WatchManager.inSettings{
+            if crownAccumulator > 0.01{
+                timeZone += 1
+                if timeZone == 360{
+                    timeZone = 0
+                }
+                let defaults = UserDefaults.standard
+                defaults.set(timeZone, forKey: "timeZone")
+                crownAccumulator = 0
+            }
+            
         }
-        else if (crownAccumulator < -0.5 && WatchManager.actualWatchNB > 0){
-            WatchManager.actualWatchNB -= 1
-           WatchManager.alternativeWatchNb = 0
-            currentWatch = WatchManager.watchList[WatchManager.actualWatchNB]
-            crownAccumulator = 0.0
-            setWatchFace()
+        else if WatchManager.crownLocked == false{
+            if (crownAccumulator > 0.5 && WatchManager.actualWatchNB < WatchManager.watchList.count-1){
+                WatchManager.nextWatchface()
+                currentWatch = WatchManager.getWatchface(at: WatchManager.actualWatchNB)
+                crownAccumulator = 0.0
+            }
+            else if (crownAccumulator < -0.5 && WatchManager.actualWatchNB > 0){
+                WatchManager.previousWatchface()
+                currentWatch = WatchManager.getWatchface(at: WatchManager.actualWatchNB)
+                crownAccumulator = 0.0
+            }
+            else if (crownAccumulator > 0.5 || crownAccumulator < -0.5){
+                WKInterfaceDevice.current().play(.click)
+            }
         }
-        else if (crownAccumulator > 0.5 || crownAccumulator < -0.5){
-            WKInterfaceDevice.current().play(.click)
-        }
-        
     }
     
     func crownDidBecomeIdle(_ crownSequencer: WKCrownSequencer?) {
@@ -101,19 +117,21 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
     
     @IBAction func longPressGesture(_ sender: Any) {
         
-        WatchManager.actualWatch.chronograph!.resetChronograph()
-        WKInterfaceDevice.current().play(.click)
+        if WatchManager.actualWatch.chronograph != nil {
+            WatchManager.actualWatch.chronograph!.resetChronograph()
+            WKInterfaceDevice.current().play(.click)
+        }
     }
     
     
     @IBAction func swipeRightGesture(_ sender: Any) {
-        if WatchManager.alternativeWatchNb > 0{
-            if WatchManager.alternativeWatchNb == 1{
+        if WatchManager.actualAlternativeWatchNB > 0{
+            if WatchManager.actualAlternativeWatchNB == 1{
                 WatchManager.actualWatch = WatchManager.watchList[WatchManager.actualWatchNB]
-                WatchManager.alternativeWatchNb = 0
+                WatchManager.actualAlternativeWatchNB = 0
             }
             else if (WatchManager.actualWatch.alternative.count > 0){
-                WatchManager.alternativeWatchNb -= 1
+                WatchManager.actualAlternativeWatchNB -= 1
                 WatchManager.configureAlternativeWatch()
                 
             }
@@ -122,8 +140,8 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
     }
     
     @IBAction func swipeLeftGesture(_ sender: Any) {
-        if (WatchManager.actualWatch.alternative.count > 0 && WatchManager.alternativeWatchNb < WatchManager.actualWatch.alternative.count){
-            WatchManager.alternativeWatchNb += 1
+        if (WatchManager.actualWatch.alternative.count > 0 && WatchManager.actualAlternativeWatchNB < WatchManager.actualWatch.alternative.count){
+            WatchManager.actualAlternativeWatchNB += 1
             WatchManager.configureAlternativeWatch()
             
             setWatchFace()
@@ -135,14 +153,33 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        WatchManager.alternativeWatchNb = 0
         WatchManager.actualWatchNB = message["CurrentWatch"] as! Int
         currentWatch = WatchManager.watchList[WatchManager.actualWatchNB]
     }
     
+    @IBAction func setFavoriteWatchFace() {
+        WatchManager.setFavoriteWatchFace()
+    }
+    
+    @IBAction func crownRotationLock() {
+        WatchManager.crownLocked = !WatchManager.crownLocked
+    }
+    
+    
+    @IBAction func gmtSettings() {
+        if currentWatch.gmt != nil{
+            WatchManager.inSettings = !WatchManager.inSettings
+        }
+    }
+    
+    @IBAction func nightMode() {
+        WatchManager.nightMode = !WatchManager.nightMode
+        setWatchFace()
+    }
     
     
 }
+
 
 
 // Hack in order to disable the digital time on the screen
@@ -163,3 +200,5 @@ extension WKInterfaceController{
     
     
 }
+
+

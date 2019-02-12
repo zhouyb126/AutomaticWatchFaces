@@ -13,18 +13,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     @IBOutlet weak var tableview: UITableView!
-    
-    let watchList = WatchDatabase().watchDatabase
+    var watchList = WatchDatabase().watchDatabase
     var session : WCSession!
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         tableview.delegate = self
         tableview.dataSource = self
         tableview.rowHeight = 112
-        
-        self.tableview.allowsSelection = true
+        tableview.allowsSelection = true
         
         if (WCSession.isSupported()) {
             session = WCSession.default
@@ -35,7 +35,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
+    // MARK: Tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return watchList.count
@@ -63,6 +63,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = watchList[sourceIndexPath.row]
+        watchList.remove(at: sourceIndexPath.row)
+        watchList.insert(movedObject, at: destinationIndexPath.row)
+    }
+    
+    // MARK: Session
     func sessionDidBecomeInactive(_ session: WCSession) {
         
     }
@@ -76,4 +93,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
 }
+
 

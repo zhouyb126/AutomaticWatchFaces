@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Watch{
+    let id: Int?
     let name : String
     var dial : String?
     var date : WatchDate?
@@ -25,8 +26,13 @@ class Watch{
     let skeleton : Skeleton?
     let tourbillon : Tourbillon?
     let secondOnTop : Bool?
+    let stop2Go: Bool?
+    let gmt : Gmt?
+    let luminescent: Bool?
+    var biColour : BiColour?
     
-    init(name:String,dial:String?=nil,secHand:Hand?=nil,minHand:Hand?=nil,hourHand:Hand?=nil,date:WatchDate?=nil,chronograph:Chronograph?=nil,grandeComplication:GrandeComplication?=nil,dayCycle:DayCycle? = nil,day:Day?=nil,alternative:[Watch?]=[],battery:Battery?=nil,skeleton:Skeleton?=nil,tourbillon:Tourbillon?=nil,secondOnTop:Bool? = true) {
+    init(id:Int?=nil,name:String,dial:String?=nil,secHand:Hand?=nil,minHand:Hand?=nil,hourHand:Hand?=nil,date:WatchDate?=nil,chronograph:Chronograph?=nil,grandeComplication:GrandeComplication?=nil,dayCycle:DayCycle? = nil,day:Day?=nil,battery:Battery?=nil,skeleton:Skeleton?=nil,tourbillon:Tourbillon?=nil,secondOnTop:Bool? = true,stop2Go:Bool? = false,gmt:Gmt? = nil,luminescent:Bool? = false,biColour: BiColour?=nil,alternative:[Watch?]=[]) {
+        self.id = id
         self.name = name
         self.date = date
         self.minHand = minHand
@@ -42,9 +48,14 @@ class Watch{
         self.skeleton = skeleton
         self.tourbillon = tourbillon
         self.secondOnTop = secondOnTop
+        self.stop2Go = stop2Go
+        self.gmt = gmt
+        self.luminescent = luminescent
+        self.biColour = biColour
     }
 }
 
+// MARK: Chronograph
 class Chronograph{
     var secHand: Hand?
     var minuteHand: Hand?
@@ -123,7 +134,7 @@ class Chronograph{
     
 }
 
-
+// MARK: Hand
 class Hand{
     let image:String
     let positionX:Double
@@ -140,18 +151,24 @@ class Hand{
     
 }
 
+// MARK: WatchDate
 class WatchDate{
     let positionX:Double?
-    let positionY: Double?
+    let positionY: Double
     let color: UIColor
+    let fontSize : Int?
+    let rotation : Double?
     
-    init(positionX:Double?=0,positionY:Double?=0,color:UIColor) {
+    init(positionX:Double?=0.0,positionY:Double,color:UIColor,fontSize:Int?=12,rotation:Double?=0) {
         self.positionX = positionX
         self.positionY = positionY
         self.color = color
+        self.fontSize = fontSize
+        self.rotation = rotation
     }
 }
 
+// MARK: GrandeComplication
 class GrandeComplication{
     let weekdayHand : Hand?
     let monthHand : Hand?
@@ -163,6 +180,8 @@ class GrandeComplication{
         self.dateHand = dateHand
     }
 }
+
+// MARK: DayCycle
 class DayCycle{
     let dial: String
     let positionX: Double
@@ -177,6 +196,7 @@ class DayCycle{
     }
 }
 
+// MARK: Day
 class Day{
     let dayPrefix:String
     let positionX:Double
@@ -199,6 +219,7 @@ class Day{
     }
 }
 
+// MARK: Battery
 class Battery{
     let batteryHand : Hand?
     
@@ -207,7 +228,7 @@ class Battery{
     }
 }
 
-
+// MARK: Skeleton
 class Skeleton{
     let balanceWheel: String
     var positionX: Double?
@@ -226,6 +247,7 @@ class Skeleton{
     
 }
 
+// MARK: Tourbillon
 class Tourbillon{
     let tourbillion : String
     
@@ -233,6 +255,28 @@ class Tourbillon{
         self.tourbillion = tourbillion
     }
 }
+
+// MARK: Gmt
+class Gmt{
+    let gmtHand : Hand
+    
+    
+    init(gmtHand : Hand) {
+        self.gmtHand = gmtHand
+    }
+}
+
+// MARK: BiColour
+class BiColour{
+    var backgroundColor : UIColor
+    var rotationColor : UIColor
+    
+    init(backgroundColor: UIColor = UIColor.black, rotationColor: UIColor = UIColor.white){
+        self.backgroundColor = backgroundColor
+        self.rotationColor = rotationColor
+    }
+}
+
 
 
 

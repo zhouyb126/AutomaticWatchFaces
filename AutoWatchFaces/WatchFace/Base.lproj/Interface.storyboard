@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
     <device id="watch44" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,6 +43,30 @@
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                         </group>
                     </items>
+                    <menu key="menu" id="kOd-Za-ikS">
+                        <items>
+                            <menuItem title="Gmt" image="GMT" id="QyA-hi-ncz">
+                                <connections>
+                                    <action selector="gmtSettings" destination="AgC-eL-Hgc" id="vqn-JG-0cz"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Favorite" image="Favorite" id="q4v-oz-Yi3">
+                                <connections>
+                                    <action selector="setFavoriteWatchFace" destination="AgC-eL-Hgc" id="kCI-l1-JcE"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Crown rotation" icon="block" id="d9S-eE-mIW">
+                                <connections>
+                                    <action selector="crownRotationLock" destination="AgC-eL-Hgc" id="zdU-CL-Ftd"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Night mode" image="Night" id="OZu-PB-LhN">
+                                <connections>
+                                    <action selector="nightMode" destination="AgC-eL-Hgc" id="PuI-Ie-gl0"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                     <connections>
                         <outlet property="skInterface" destination="q2C-tg-N20" id="pP6-lr-slC"/>
