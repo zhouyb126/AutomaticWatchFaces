@@ -25,7 +25,6 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 [Article/Guide from iSpazio](https://www.facebook.com/groups/AWFgroup/) Written by [Emanuele Esposito](https://www.instagram.com/emanuele_esp/)
 
 
-
 1. Clone the repository on your Mac:
 
    `git clone git@github.com:ElChoquito/AutomaticWatchFaces.git`
