@@ -12,6 +12,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 
 ### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
+### Follow us on Instagram ! [Here](https://www.instagram.com/awfwatch)
 
 
 # Video (How to use)
