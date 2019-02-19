@@ -456,8 +456,6 @@ class WatchScene: SKScene {
         if watch.biColour != nil{
             biColourUp.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
         }
-        
-        minuteHand.zRotation = degreesToRadians(90)
     }
     
 
