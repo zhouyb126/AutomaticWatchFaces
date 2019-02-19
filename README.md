@@ -12,7 +12,6 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 
 ### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
-### Follow us on Instagram ! [Here](https://www.instagram.com/awfwatch)
 
 
 # Video (How to use)
@@ -67,9 +66,8 @@ Look the previous video.
 # List of watchfaces
 More will come very soon !
 
-### Apple Hermès (W/ Date) alternative versions available
-### Apple Hermès bicolour alternative versions available
-### Apple Hermès Layered
+### Apple Hermes (W/ Date) alternative versions available
+### Apple Hermes bicolour alternative versions available
 ### Apple Nike + (alternative versions available)
 
 ### Audemards Piguet Royal Oak (alternative versions available)
@@ -112,10 +110,6 @@ More will come very soon !
 ### Tag Heuer Monaco (W/ Date & Chronograph) alternative version available
 
 # Updates
-## Version 0.9.1
-- Apple Hermès Layered watchfaces added (currently available for Hermès Watch OS 5.2 beta users on Series 4) (Thanks [nimbus12_](https://www.instagram.com/nimbus12_/))
-
-- Compatibility with Series 0 added (Watch OS 4.3)
 ## Version 0.9
 - Complication feature added for offical watchfaces ! Jump into AWF instantly.
 
@@ -130,7 +124,7 @@ More will come very soon !
 - Audemards Piguet Royal Oak Chronograph (W/ Chronograph) and alternative versions added (by [sz_geri](https://www.instagram.com/sz_geri/) )
 - Audemards Piguet Royal Oak alternative versions added (by [sz_geri](https://www.instagram.com/sz_geri/)).
 - Rolex Sea Dweller watchface added with night version (by Revo G).
-- Apple Hermès bicolour watchface added with alternative version.
+- Apple Hermes bicolour watchface added with alternative version.
 - Rolex Explorer II night version and GMT complication added.
 - Rolex Submariner night version added.
 - Bell & Ross 01-94 alternative version added.
@@ -178,7 +172,7 @@ More will come very soon !
 - Minor adjustment on watchfaces.
 - Cartier Tank watchface added.
 - Seiko SKX007 watchface added.
-- Hermès Apple Watch watchface added.
+- Hermes Apple Watch watchface added.
 
 ## Version 0.3
 - Minor adjustment on watchfaces.

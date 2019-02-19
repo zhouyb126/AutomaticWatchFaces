@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
+    <device id="watch44" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller spacing="0.0" fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchFace" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" spacing="0.0" id="Bxy-Ye-Nfq">
+                            <items>
+                                <spriteKitScene alignment="center" verticalAlignment="center" preferredFramesPerSecond="25" id="q2C-tg-N20">
+                                    <gestureRecognizers>
+                                        <tapGestureRecognizer id="7o9-v5-dck">
+                                            <connections>
+                                                <action selector="tapGesture:" destination="AgC-eL-Hgc" id="rNo-gW-uyZ"/>
+                                            </connections>
+                                        </tapGestureRecognizer>
+                                        <longPressGestureRecognizer allowableMovement="1" id="rfN-Uk-Bqo">
+                                            <connections>
+                                                <action selector="longPressGesture:" destination="AgC-eL-Hgc" id="3SE-su-KWc"/>
+                                            </connections>
+                                        </longPressGestureRecognizer>
+                                        <swipeGestureRecognizer id="iyj-gx-WIl">
+                                            <connections>
+                                                <action selector="swipeRightGesture:" destination="AgC-eL-Hgc" id="eHv-zY-dgo"/>
+                                            </connections>
+                                        </swipeGestureRecognizer>
+                                        <swipeGestureRecognizer direction="2" id="oyc-Tc-2r8">
+                                            <connections>
+                                                <action selector="swipeLeftGesture:" destination="AgC-eL-Hgc" id="2tf-je-jko"/>
+                                            </connections>
+                                        </swipeGestureRecognizer>
+                                    </gestureRecognizers>
+                                </spriteKitScene>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <menu key="menu" id="kOd-Za-ikS">
+                        <items>
+                            <menuItem title="Gmt" image="GMT" id="QyA-hi-ncz">
+                                <connections>
+                                    <action selector="gmtSettings" destination="AgC-eL-Hgc" id="vqn-JG-0cz"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Favorite" image="Favorite" id="q4v-oz-Yi3">
+                                <connections>
+                                    <action selector="setFavoriteWatchFace" destination="AgC-eL-Hgc" id="kCI-l1-JcE"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Crown rotation" icon="block" id="d9S-eE-mIW">
+                                <connections>
+                                    <action selector="crownRotationLock" destination="AgC-eL-Hgc" id="zdU-CL-Ftd"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Night mode" image="Night" id="OZu-PB-LhN">
+                                <connections>
+                                    <action selector="nightMode" destination="AgC-eL-Hgc" id="PuI-Ie-gl0"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                    <connections>
+                        <outlet property="skInterface" destination="q2C-tg-N20" id="pP6-lr-slC"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+    </scenes>
+</document>
