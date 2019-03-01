@@ -20,6 +20,62 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 
 
 # Installing
+You can install the app via the .ipa file or with the GitHub project folder :
+## IPA
+Download the file [here](https://www.dropbox.com/s/t1mlsyvnnw4nf1w/AutoWatchFaces0.9.2.ipa?dl=0)
+
+### For non-jail broken devices:
+
+##### Requirements:
+20 minutes
+A copy of the IPA file
+A copy of Cydia Impactor
+Your Apple ID
+An Apple ID app-specific password
+##### Step 1
+Unzip your copy of Cydia Impactor to a place where you can find it
+Please copy the IPA to the same folder
+##### Step 2
+Plug in your device and open Cydia Impactor. Do NOT run Impactor as an administrator.
+Please confirm the name of your device is visible in Impactor.
+##### Step 3
+Drag the IPA to the cydia Impactor window.
+##### Step 4
+When prompted, enter your Apple ID and use the App Specific Password as your password.
+##### Step 5
+Wait until the Impactor no longer has a loading bar and the app shows on your phone. You can now disconnect from your computer.
+##### Step 6
+On your phone: go to
+Settings>General>Profiles and Device Management
+And press on your Apple ID. Hit Trust.
+##### Step 7
+Confirm the App opens. If it does, congratulations! The app will say active for 7 days before you need to do this entire process again. You do NOT need to remove the app before doing this again.
+
+### For Jailbroken devices (confirmed on 12.1.1B3 W/ unc0ver):
+
+##### Requirements:
+20 minutes
+A copy of the IPA file
+A working copy of ReProvision (from repo.incendo.wa) and all it’s dependencies
+The Apple ID you used with ReProvision
+##### Step 1
+Open the IPA from your device and select “Open in ReProvision”
+##### Step 2
+Wait for the pop ups from ReProvision to say “signing complete”.
+##### Step 3
+Attempt to open the app
+IF you get an error: go to step 4
+IF you do NOT get an error: go to step 6
+##### Step 4
+On your phone: go to
+Settings>General>Profiles and Device Management
+And press on your Apple ID. Hit Trust.
+##### Step 5
+Confirm that the app opens.
+If it doesn’t, please try again or use the non-jailbroken guide.
+##### Step 6
+Congratulations! The app will say active for 5 days before ReProvision renews the 7 day timer. If that fails, please check ReProvision or use the non-Jailbroken guide.
+## GitHub Project
 [Video tutorial](https://youtu.be/-TS4ypziaMU)
 
 [Article/Guide from iSpazio](https://www.facebook.com/groups/AWFgroup/) Written by [Emanuele Esposito](https://www.instagram.com/emanuele_esp/)
@@ -67,11 +123,13 @@ Look the previous video.
 More will come very soon !
 
 ### Apple Hermes (W/ Date) alternative versions available
-### Apple Hermes bicolour alternative versions available
+### Apple Hermes DuoTone alternative versions available
+### Apple Hermes Layered
 ### Apple Nike + (alternative versions available)
 
 ### Audemards Piguet Royal Oak (alternative versions available)
 ### Audemards Piguet Royal Oak Chronograph (W/ Chronograph) alternative versions available
+### Audemards Piguet Royal Oak Offshore (W/ Chronograph)
 
 
 ### Bell & Ross 01-94 (W/ Date & Chronograph) alternative version available
@@ -87,6 +145,9 @@ More will come very soon !
 
 ### Mondaine (W/ Stop2Go) alternative version available
 
+### Movado Museum alternative version available
+### Movado Sapphire Synergy Chrono
+
 ### Omega Seamaster
 ### Omega Speedmaster Professional (W/ Chronograph) alternative version available
 
@@ -97,9 +158,12 @@ More will come very soon !
 
 ### Patek Philippe Nautilus (W/ Date) alternative version available
 
+### Porsche Design 911 GT2 RS Chronograph (W/ Chronograph)
+
 ### Rolex Day-Date (W/ Day) alternative version available
 ### Rolex Daytona (W/ Chronograph) alternative version available
 ### Rolex Explorer II (W/ Date) night version available
+### Rolex GMT Master II (W/ GMT)
 ### Rolex Milgauss
 ### Rolex Sea Dweller night version available
 ### Rolex Submariner (W/ Date) night & alternative version available
@@ -110,6 +174,20 @@ More will come very soon !
 ### Tag Heuer Monaco (W/ Date & Chronograph) alternative version available
 
 # Updates
+## Version 0.9.2
+- IPA installation tutorial added (by [NateP](https://www.facebook.com/wireman642))
+
+- GMT complication fixed.
+
+- Rolex GMT Master II (W/ GMT) watchface added.
+- Porsche Design 911 GT2 RS Chronograph (W/Chronograph) watchface added.
+- Audemards Piguet Royal Oak Offshore (W/Chronograph) watchface added.
+- Hermes DuoTone alternative version added.
+- Nike + alternative version added.
+
+## Version 0.9.1
+- Apple Hermes Layered watchface added.
+
 ## Version 0.9
 - Complication feature added for offical watchfaces ! Jump into AWF instantly.
 
@@ -118,13 +196,13 @@ More will come very soon !
 - Enable/ disable crown rotation feature added.
 - Gmt complication added.
 - Stop2Clock complication added.
-- BiColour complication added.
+- DuoTone complication added.
 
 - Adjustment on watchfaces.
 - Audemards Piguet Royal Oak Chronograph (W/ Chronograph) and alternative versions added (by [sz_geri](https://www.instagram.com/sz_geri/) )
 - Audemards Piguet Royal Oak alternative versions added (by [sz_geri](https://www.instagram.com/sz_geri/)).
 - Rolex Sea Dweller watchface added with night version (by Revo G).
-- Apple Hermes bicolour watchface added with alternative version.
+- Apple Hermes DuoTone watchface added with alternative version.
 - Rolex Explorer II night version and GMT complication added.
 - Rolex Submariner night version added.
 - Bell & Ross 01-94 alternative version added.

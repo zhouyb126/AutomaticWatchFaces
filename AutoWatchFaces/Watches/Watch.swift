@@ -155,16 +155,18 @@ class Hand{
 class WatchDate{
     let positionX:Double?
     let positionY: Double
+    let font : String?
     let color: UIColor
     let fontSize : Int?
     let rotation : Double?
     
-    init(positionX:Double?=0.0,positionY:Double,color:UIColor,fontSize:Int?=12,rotation:Double?=0) {
+    init(positionX:Double?=0.0,positionY:Double,font:String?=nil,color:UIColor,fontSize:Int?=12,rotation:Double?=0) {
         self.positionX = positionX
         self.positionY = positionY
         self.color = color
         self.fontSize = fontSize
         self.rotation = rotation
+        self.font = font
     }
 }
 

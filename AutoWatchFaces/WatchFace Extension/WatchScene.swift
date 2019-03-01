@@ -446,10 +446,10 @@ class WatchScene: SKScene {
                 timeZone = defaults as! Int
             }
             if WatchManager.inSettings{
-                subHand1.zRotation = -1 * degreesToRadians((hour)*30 + (minutes)/2 + CGFloat(timeZone))
+                subHand1.zRotation = -1 * degreesToRadians((hour)*15 + (minutes)/2 + CGFloat(timeZone))
             }
             else{
-                subHand1.zRotation = -1 * degreesToRadians((hour)*30 + (minutes)/2 + CGFloat(timeZone))
+                subHand1.zRotation = -1 * degreesToRadians((hour)*15 + (minutes)/2 + CGFloat(timeZone))
             }
         }
         
