@@ -8,7 +8,8 @@
 App using SpriteKit in order to simulate watchfaces (with complications) on WatchOS.
 
 AWF is battery friendly, the scene is running at 25 frames per second !
-![select](https://media.giphy.com/media/dJsaNZ0eUrBhcGhaEW/giphy.gif)
+A Quartz mode is avaible with 1 frame per second !
+![select](https://media.giphy.com/media/5tvQGR18R3HWP1P3t0/giphy.gif)
 
 
 ### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
@@ -22,7 +23,7 @@ AWF is battery friendly, the scene is running at 25 frames per second !
 # Installing
 You can install the app via the .ipa file or with the GitHub project folder :
 ## IPA
-Download the file [here](https://www.dropbox.com/s/t1mlsyvnnw4nf1w/AutoWatchFaces0.9.2.ipa?dl=0)
+Download the file [here](https://www.dropbox.com/s/x1pu7aygaw1hred/AutoWatchFaces1.0.ipa?dl=0)
 
 ### For non-jail broken devices:
 
@@ -56,7 +57,7 @@ Confirm the App opens. If it does, congratulations! The app will say active for 
 ##### Requirements:
 20 minutes
 A copy of the IPA file
-A working copy of ReProvision (from repo.incendo.wa) and all it’s dependencies
+A working copy of ReProvision (from repo.incendo.ws) and all it’s dependencies
 The Apple ID you used with ReProvision
 ##### Step 1
 Open the IPA from your device and select “Open in ReProvision”
@@ -121,7 +122,7 @@ Look the previous video.
 
 # List of watchfaces
 More will come very soon !
-
+### Apple Color
 ### Apple Hermes (W/ Date) alternative versions available
 ### Apple Hermes DuoTone alternative versions available
 ### Apple Hermes Layered
@@ -135,13 +136,18 @@ More will come very soon !
 ### Bell & Ross 01-94 (W/ Date & Chronograph) alternative version available
 
 ### Breitling Avenger Blackbird (W/ Date)
+### Breitling Chronoliner B04 (W/Date, GMT, Chronograph)
 
 ### Cartier Tank (alternative versions available)
 
+### Hublot Sang Bleu
 ### Hublot Spirit of Big Bang (W/ Date)
 
 ### IWC DaVinci Tourbillon (W/Chronograph & Tourbillon)
-![gif](https://media.giphy.com/media/NsESMeZvUqshx43dqM/giphy.gif)
+![gif](https://media.giphy.com/media/NsESMeZvUqshx43dqM/giphy.gif)#
+### IWC Portuguese (W/ Skeleton)
+
+### Jaeger Lecoultre Reverso
 
 ### Mondaine (W/ Stop2Go) alternative version available
 
@@ -169,11 +175,23 @@ More will come very soon !
 ### Rolex Submariner (W/ Date) night & alternative version available
 ![SubAlt](https://i.ibb.co/mHL77vR/Alternate1.png)
 
-### Seiko SKX007 (W/ Date)
-
 ### Tag Heuer Monaco (W/ Date & Chronograph) alternative version available
 
+### UBoat 1001
+
 # Updates
+
+## Version 1.0
+- Custom watchfaces feature, select background colors, hands kit...(Beta version).
+- Quartz mode (1 frame per second) added.
+
+- Apple Color watchface added.
+- Hublot Sang Bleu watchface added.
+- IWC Portuguese watchface added.
+- Jaeger Lecoultre Reverso watchface added.
+- Uboat 1001 watchface added. (Thanks Telman Akavov)
+- Adjustment on watchfaces(Rolex Submariner dial customizable, Hermes DuoTone dial customizable...).
+
 ## Version 0.9.2
 - IPA installation tutorial added (by [NateP](https://www.facebook.com/wireman642))
 

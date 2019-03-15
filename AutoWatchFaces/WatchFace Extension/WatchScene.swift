@@ -23,43 +23,70 @@ class WatchScene: SKScene {
     var battery : SKSpriteNode = SKSpriteNode()
     var balanceWheel : SKSpriteNode = SKSpriteNode()
     var tourbillon : SKSpriteNode = SKSpriteNode()
-    var biColourUp : SKSpriteNode = SKSpriteNode()
-    var biColourDown : SKSpriteNode = SKSpriteNode()
+    var backgroundLayer : SKSpriteNode = SKSpriteNode()
+    var foregroundLayer : SKSpriteNode = SKSpriteNode()
+    var gmtHand : SKSpriteNode = SKSpriteNode()
+    var topLayer : SKSpriteNode = SKSpriteNode()
+    var nightLayer : SKSpriteNode = SKSpriteNode()
     
-    let watch = WatchManager.actualWatch
+    
+    let watch = WatchManager.getActualWatch()
     
     // MARK: Set the watchface
     override func sceneDidLoad() {
-        
         scene?.scaleMode = .aspectFit
-        if let background : SKSpriteNode = self.childNode(withName: "Dial") as? SKSpriteNode{
-            dialBackground = background
-            if watch.luminescent == true && WatchManager.nightMode{
-                let dialName = watch.dial! + "-night"
+        if let dial : SKSpriteNode = self.childNode(withName: "Dial") as? SKSpriteNode{
+            dialBackground = dial
+            if watch.getLuminescent() == true && WatchManager.isNightModeEnable(){
+                let dialName = watch.getDialName()! + "-night"
                 dialBackground.texture = SKTexture(imageNamed: dialName)
             }
             else{
-                dialBackground.texture = SKTexture(imageNamed: watch.dial!)
+                if var texture = watch.getDialName(){
+                    // DuoTones dials example are not without background
+                    if texture == "DuoTDial-1"{ texture = "DuoTDial-3"}
+                    else if texture == "DuoTDial"{ texture = "DuoTDial-2"}
+                    dialBackground.texture = SKTexture(imageNamed: texture)
+                }
+            }
+            
+            if watch.getDialName() == nil{
+                dialBackground.isHidden = true
             }
         }
         
-        if let biColourUpBgr : SKSpriteNode = self.childNode(withName: "BiColourUp") as? SKSpriteNode{
-            biColourUp = biColourUpBgr
-            if watch.biColour != nil{
-                biColourUp.color = (watch.biColour?.rotationColor)!
+        if let biColourUpBgr : SKSpriteNode = self.childNode(withName: "Foreground") as? SKSpriteNode{
+            foregroundLayer = biColourUpBgr
+            if watch.getBiColour() != nil{
+                var upColor = [Float]()
+                if watch.isCustomizable()!{
+                    upColor = WatchManager.getForegroundColor()
+                }
+                else{
+                    upColor = (watch.getBiColour()?.getForegroundColor())!
+                }
+                print(upColor)
+                foregroundLayer.color = UIColor(red: CGFloat(upColor[0]), green: CGFloat(upColor[1]), blue: CGFloat(upColor[2]), alpha: 1.0)
             }
+                
             else{
-                biColourUp.isHidden = true
+                foregroundLayer.isHidden = true
             }
         }
         
-        if let biColourDownBgr : SKSpriteNode = self.childNode(withName: "BiColourDown") as? SKSpriteNode{
-            biColourDown = biColourDownBgr
-            if watch.biColour != nil{
-                biColourDown.color = (watch.biColour?.backgroundColor)!
+        if let biColourDownBgr : SKSpriteNode = self.childNode(withName: "Background") as? SKSpriteNode{
+            backgroundLayer = biColourDownBgr
+            if watch.isCustomizable()!{
+                backgroundLayer.color = UIColor(red: CGFloat((WatchManager.getBackgroundColor()[0])), green: CGFloat((WatchManager.getBackgroundColor()[1])), blue: CGFloat((WatchManager.getBackgroundColor()[2])), alpha: 1.0)
+                
+            }
+            else if watch.getBiColour() != nil{
+                let downColor = watch.getBiColour()?.getBackgroundColor()
+                backgroundLayer.color =
+                    UIColor(red: CGFloat((downColor![0])), green: CGFloat((downColor![1])), blue: CGFloat((downColor![2])), alpha: 1.0)
             }
             else{
-                biColourDown.isHidden = true
+                backgroundLayer.isHidden = true
             }
         }
         
@@ -67,19 +94,19 @@ class WatchScene: SKScene {
         if let secHand : SKSpriteNode = self.childNode(withName: "SecondHand") as? SKSpriteNode{
             secondHand = secHand
             
-            if (watch.secHand != nil){
-                if watch.luminescent == true && WatchManager.nightMode{
-                    let secondHandName = (watch.secHand?.image)! + "-night"
+            if (watch.getSecondHand() != nil){
+                if watch.getLuminescent() == true && WatchManager.isNightModeEnable(){
+                    let secondHandName = (watch.getSecondHand()?.getImageName())! + "-night"
                     secondHand.texture = SKTexture(imageNamed: secondHandName)
                 }
                 else{
-                    secondHand.texture = SKTexture(imageNamed: (watch.secHand?.image)!)
+                    secondHand.texture = SKTexture(imageNamed: (watch.getSecondHand()?.getImageName())!)
                 }
-                secondHand.xScale = CGFloat((watch.secHand?.scale)!)
-                secondHand.yScale = CGFloat((watch.secHand?.scale)!)
-                secondHand.position = CGPoint(x: (watch.secHand?.positionX)!, y: (watch.secHand?.positionY)!)
+                secondHand.xScale = CGFloat((watch.getSecondHand()?.getScale())!)
+                secondHand.yScale = CGFloat((watch.getSecondHand()?.getScale())!)
+                secondHand.position = CGPoint(x: (watch.getSecondHand()?.getHandPosition()[0])!, y: (watch.getSecondHand()?.getHandPosition()[1])!)
                 
-                if watch.secondOnTop == true {
+                if watch.getSecondOnTop() == true {
                     secondHand.zPosition = 5}
                 else{secondHand.zPosition = 0
                 }
@@ -94,16 +121,16 @@ class WatchScene: SKScene {
         if let minHand : SKSpriteNode = self.childNode(withName: "MinuteHand") as? SKSpriteNode{
             minuteHand  = minHand
             
-            if watch.minHand != nil{
-                if watch.luminescent == true && WatchManager.nightMode{
-                    let minuteHandName = (watch.minHand?.image)! + "-night"
+            if watch.getMinuteHand() != nil{
+                if watch.getLuminescent() == true && WatchManager.isNightModeEnable(){
+                    let minuteHandName = (watch.getMinuteHand()?.getImageName())! + "-night"
                     minuteHand.texture = SKTexture(imageNamed: minuteHandName)
                 }
                 else{
-                    minuteHand.texture = SKTexture(imageNamed: (watch.minHand?.image)!)
+                    minuteHand.texture = SKTexture(imageNamed: (watch.getMinuteHand()?.getImageName())!)
                 }
-                minuteHand.xScale = CGFloat((watch.minHand?.scale)!)
-                minuteHand.yScale = CGFloat((watch.minHand?.scale)!)
+                minuteHand.xScale = CGFloat((watch.getMinuteHand()?.getScale())!)
+                minuteHand.yScale = CGFloat((watch.getMinuteHand()?.getScale())!)
                 minuteHand.zPosition = 4
             }
             else {
@@ -113,16 +140,16 @@ class WatchScene: SKScene {
         
         if let hrHand : SKSpriteNode = self.childNode(withName: "HourHand") as? SKSpriteNode{
             hourHand = hrHand
-            if watch.hourHand != nil{
-                if watch.luminescent == true && WatchManager.nightMode{
-                    let hourHandName = (watch.hourHand?.image)! + "-night"
+            if watch.getHourHand() != nil{
+                if watch.getLuminescent() == true && WatchManager.isNightModeEnable(){
+                    let hourHandName = (watch.getHourHand()?.getImageName())! + "-night"
                     hourHand.texture = SKTexture(imageNamed: hourHandName)
                 }
                 else{
-                    hourHand.texture = SKTexture(imageNamed: (watch.hourHand?.image)!)
+                    hourHand.texture = SKTexture(imageNamed: (watch.getHourHand()?.getImageName())!)
                 }
-                hourHand.xScale = CGFloat((watch.hourHand?.scale)!)
-                hourHand.yScale = CGFloat((watch.hourHand?.scale)!)
+                hourHand.xScale = CGFloat((watch.getHourHand()?.getScale())!)
+                hourHand.yScale = CGFloat((watch.getHourHand()?.getScale())!)
                 hourHand.zPosition = 3
             }
             else{
@@ -133,13 +160,20 @@ class WatchScene: SKScene {
         if let label : SKLabelNode = self.childNode(withName: "DateLabel") as? SKLabelNode{
             dateLabel = label
             
-            if watch.date != nil{
+            if watch.getDate() != nil{
                 dateLabel.isHidden = false
-                dateLabel.position = CGPoint(x:(watch.date?.positionX)!, y: (watch.date?.positionY)!)
-                dateLabel.fontColor = watch.date?.color
-                dateLabel.fontSize = CGFloat((watch.date?.fontSize)!)
-                dateLabel.zRotation = CGFloat((watch.date?.rotation)!)
+                dateLabel.position = CGPoint(x:(watch.getDate()?.getPosition()[0])!, y: (watch.getDate()?.getPosition()[1])!)
+                if watch.getDate()?.getFontName() != nil{
+                    dateLabel.fontName = watch.getDate()?.getFontName()
+                }
+                else{
+                    dateLabel.fontName = "Helvetica Neue Bold"
+                }
+                dateLabel.fontColor = UIColor(red: CGFloat((watch.getDate()?.getColor()[0])!), green: CGFloat((watch.getDate()?.getColor()[1])!), blue: CGFloat((watch.getDate()?.getColor()[2])!), alpha: 1.0)
+                dateLabel.fontSize = CGFloat((watch.getDate()?.getFontSize())!)
+                dateLabel.zRotation = CGFloat((watch.getDate()?.getFontRotation())!)
                 dateLabel.zPosition = 1
+                dateLabel.horizontalAlignmentMode = .center
             }
             else{
                 dateLabel.isHidden = true
@@ -150,38 +184,24 @@ class WatchScene: SKScene {
         if let SubHand1 : SKSpriteNode = self.childNode(withName: "SubHand1") as? SKSpriteNode{
             subHand1 = SubHand1
             
-            if watch.chronograph?.secHand != nil{
-                subHand1.texture = SKTexture(imageNamed: (watch.chronograph?.secHand?.image)!)
+            if watch.getChronograph()?.getSecondHand() != nil{
+                subHand1.texture = SKTexture(imageNamed: (watch.getChronograph()?.getSecondHand()?.getImageName())!)
                 subHand1.isHidden = false
-                subHand1.xScale = CGFloat((watch.chronograph?.secHand?.scale)!)
-                subHand1.yScale = CGFloat((watch.chronograph?.secHand?.scale)!)
-                subHand1.position = CGPoint(x:(watch.chronograph?.secHand?.positionX)!, y: (watch.chronograph?.secHand?.positionY)!)
+                subHand1.xScale = CGFloat((watch.getChronograph()?.getSecondHand()?.getScale())!)
+                subHand1.yScale = CGFloat((watch.getChronograph()?.getSecondHand()?.getScale())!)
+                subHand1.position = CGPoint(x:(watch.getChronograph()?.getSecondHand()?.getHandPosition()[0])!, y: (watch.getChronograph()?.getSecondHand()?.getHandPosition()[1])!)
                 
-                if watch.chronograph?.secondOnTop == true {
+                if watch.getChronograph()?.getSecondOnTop() == true {
                     subHand1.zPosition = 0}
                 else{subHand1.zPosition = 5
                 }
             }
-            else if watch.grandeComplication?.monthHand != nil{
-                subHand1.texture = SKTexture(imageNamed: (watch.grandeComplication?.monthHand?.image)!)
+            else if watch.getGrandeComplication()?.getMonthHand() != nil{
+                subHand1.texture = SKTexture(imageNamed: (watch.getGrandeComplication()?.getMonthHand()?.getImageName())!)
                 subHand1.isHidden = false
-                subHand1.xScale = CGFloat((watch.grandeComplication?.monthHand?.scale)!)
-                subHand1.yScale = CGFloat((watch.grandeComplication?.monthHand?.scale)!)
-                subHand1.position = CGPoint(x:(watch.grandeComplication?.monthHand?.positionX)!, y: (watch.grandeComplication?.monthHand?.positionY)!)
-            }
-                
-                
-            else if watch.gmt != nil{
-                if watch.luminescent == true && WatchManager.nightMode{
-                    let texture = (watch.gmt?.gmtHand.image)! + "-night"
-                    subHand1.texture = SKTexture(imageNamed: (texture))
-                }
-                else{
-                    subHand1.texture = SKTexture(imageNamed: (watch.gmt?.gmtHand.image)!)
-                }
-                subHand1.position.x = CGFloat((watch.gmt?.gmtHand.positionX)!)
-                subHand1.position.y = CGFloat((watch.gmt?.gmtHand.positionY)!)
-                SubHand1.zPosition = 2
+                subHand1.xScale = CGFloat((watch.getGrandeComplication()?.getMonthHand()?.getScale())!)
+                subHand1.yScale = CGFloat((watch.getGrandeComplication()?.getMonthHand()?.getScale())!)
+                subHand1.position = CGPoint(x:(watch.getGrandeComplication()?.getMonthHand()?.getHandPosition()[0])!, y: ((watch.getGrandeComplication()?.getMonthHand()?.getHandPosition()[1])!))
             }
                 
             else{
@@ -191,23 +211,23 @@ class WatchScene: SKScene {
         
         if let SubHand2 : SKSpriteNode = self.childNode(withName: "SubHand2") as? SKSpriteNode{
             subHand2 = SubHand2
-            subHand2.zPosition = 2
+            subHand2.zPosition = 0
             
-            if watch.chronograph?.minuteHand != nil{
-                subHand2.texture = SKTexture(imageNamed: (watch.chronograph?.minuteHand?.image)!)
+            if watch.getChronograph()?.getMinuteHand() != nil{
+                subHand2.texture = SKTexture(imageNamed: (watch.getChronograph()?.getMinuteHand()?.getImageName())!)
                 subHand2.isHidden = false
-                subHand2.xScale = CGFloat((watch.chronograph?.minuteHand?.scale)!)
-                subHand2.yScale = CGFloat((watch.chronograph?.minuteHand?.scale)!)
-                subHand2.position = CGPoint(x:(watch.chronograph?.minuteHand?.positionX)!, y: (watch.chronograph?.minuteHand?.positionY)!)
+                subHand2.xScale = CGFloat((watch.getChronograph()?.getMinuteHand()?.getScale())!)
+                subHand2.yScale = CGFloat((watch.getChronograph()?.getMinuteHand()?.getScale())!)
+                subHand2.position = CGPoint(x:(watch.getChronograph()?.getMinuteHand()?.getHandPosition()[0])!, y: (watch.getChronograph()?.getMinuteHand()?.getHandPosition()[1])!)
                 
             }
                 
-            else if watch.grandeComplication?.weekdayHand != nil{
-                subHand2.texture = SKTexture(imageNamed: (watch.grandeComplication?.weekdayHand!.image)!)
+            else if watch.getGrandeComplication()?.getWeekdayHand() != nil{
+                subHand2.texture = SKTexture(imageNamed: (watch.getGrandeComplication()?.getWeekdayHand()!.getImageName())!)
                 subHand2.isHidden = false
-                subHand2.xScale = CGFloat((watch.grandeComplication?.weekdayHand!.scale)!)
-                subHand2.yScale = CGFloat((watch.grandeComplication?.weekdayHand!.scale)!)
-                subHand2.position = CGPoint(x:(watch.grandeComplication?.weekdayHand!.positionX)!, y: (watch.grandeComplication?.weekdayHand!.positionY)!)
+                subHand2.xScale = CGFloat((watch.getGrandeComplication()?.getWeekdayHand()!.getScale())!)
+                subHand2.yScale = CGFloat((watch.getGrandeComplication()?.getWeekdayHand()!.getScale())!)
+                subHand2.position = CGPoint(x:(watch.getGrandeComplication()?.getWeekdayHand()!.getHandPosition()[0])!, y: (watch.getGrandeComplication()?.getWeekdayHand()!.getHandPosition()[1])!)
                 
             }
             else{
@@ -217,21 +237,21 @@ class WatchScene: SKScene {
         
         if let SubHand3 : SKSpriteNode = self.childNode(withName: "SubHand3") as? SKSpriteNode{
             subHand3 = SubHand3
-            subHand3.zPosition = 1
+            subHand3.zPosition = 0
             
-            if watch.chronograph?.hourHand != nil{
-                subHand3.texture = SKTexture(imageNamed: (watch.chronograph?.hourHand?.image)!)
+            if watch.getChronograph()?.getHourHand() != nil{
+                subHand3.texture = SKTexture(imageNamed: (watch.getChronograph()?.getHourHand()?.getImageName())!)
                 subHand3.isHidden = false
-                subHand3.xScale = CGFloat((watch.chronograph?.hourHand?.scale)!)
-                subHand3.yScale = CGFloat((watch.chronograph?.hourHand?.scale)!)
-                subHand3.position = CGPoint(x:(watch.chronograph?.hourHand?.positionX)!, y: (watch.chronograph?.hourHand?.positionY)!)
+                subHand3.xScale = CGFloat((watch.getChronograph()?.getHourHand()?.getScale())!)
+                subHand3.yScale = CGFloat((watch.getChronograph()?.getHourHand()?.getScale())!)
+                subHand3.position = CGPoint(x:(watch.getChronograph()?.getHourHand()?.getHandPosition()[0])!, y: (watch.getChronograph()?.getHourHand()?.getHandPosition()[1])!)
                 
-            } else if watch.grandeComplication?.dateHand != nil{
-                subHand3.texture = SKTexture(imageNamed: (watch.grandeComplication?.dateHand!.image)!)
+            } else if watch.getGrandeComplication()?.getDateHand() != nil{
+                subHand3.texture = SKTexture(imageNamed: (watch.getGrandeComplication()?.getDateHand()!.getImageName())!)
                 subHand3.isHidden = false
-                subHand3.xScale = CGFloat((watch.grandeComplication?.dateHand?.scale)!)
-                subHand3.yScale = CGFloat((watch.grandeComplication?.dateHand!.scale)!)
-                subHand3.position = CGPoint(x:(watch.grandeComplication?.dateHand!.positionX)!, y: (watch.grandeComplication?.dateHand!.positionY)!)
+                subHand3.xScale = CGFloat((watch.getGrandeComplication()?.getDateHand()?.getScale())!)
+                subHand3.yScale = CGFloat((watch.getGrandeComplication()?.getDateHand()!.getScale())!)
+                subHand3.position = CGPoint(x:(watch.getGrandeComplication()?.getDateHand()!.getHandPosition()[0])!, y: (watch.getGrandeComplication()?.getDateHand()!.getHandPosition()[1])!)
                 
             }
             else{
@@ -244,12 +264,12 @@ class WatchScene: SKScene {
         if let DayCycle : SKSpriteNode = self.childNode(withName: "DayCycle") as? SKSpriteNode{
             dayCycle = DayCycle
             
-            if watch.dayCycle != nil{
-                dayCycle.texture = SKTexture(imageNamed: (watch.dayCycle?.dial)!)
+            if watch.getDayCycle() != nil{
+                dayCycle.texture = SKTexture(imageNamed: (watch.getDayCycle()?.getDialName())!)
                 dayCycle.isHidden = false
-                dayCycle.xScale = CGFloat((watch.dayCycle?.scale)!)
-                dayCycle.yScale = CGFloat((watch.dayCycle?.scale)!)
-                dayCycle.position = CGPoint(x:(watch.dayCycle?.positionX)!, y: (watch.dayCycle?.positionY)!)
+                dayCycle.xScale = CGFloat((watch.getDayCycle()?.getScale())!)
+                dayCycle.yScale = CGFloat((watch.getDayCycle()?.getScale())!)
+                dayCycle.position = CGPoint(x:(watch.getDayCycle()?.getPosition()[0])!, y: (watch.getDayCycle()?.getPosition()[1])!)
                 
             }
             else{
@@ -260,11 +280,11 @@ class WatchScene: SKScene {
         if let DayLabelSprite : SKSpriteNode = self.childNode(withName: "DayLabelSprite") as? SKSpriteNode{
             dayLabelSprite = DayLabelSprite
             
-            if watch.day != nil{
+            if watch.getDay() != nil{
                 dayLabelSprite.isHidden = false
-                dayLabelSprite.position = CGPoint(x:(watch.day?.positionX)!, y: (watch.day?.positionY)!)
-                dayLabelSprite.xScale = CGFloat(watch.day!.xScale)
-                dayLabelSprite.yScale = CGFloat(watch.day!.yScale)
+                dayLabelSprite.position = CGPoint(x:(watch.getDay()?.getPosition()[0])!, y: (watch.getDay()?.getPosition()[1])!)
+                dayLabelSprite.xScale = CGFloat(watch.getDay()!.getScale()[0])
+                dayLabelSprite.yScale = CGFloat(watch.getDay()!.getScale()[1])
                 dayLabelSprite.zPosition = 1
                 
             }
@@ -278,13 +298,13 @@ class WatchScene: SKScene {
         if let BatteryIndicator : SKSpriteNode = self.childNode(withName: "Battery") as? SKSpriteNode{
             battery = BatteryIndicator
             
-            if watch.battery != nil{
+            if watch.getBattery() != nil{
                 WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
-                battery.texture = SKTexture(imageNamed: (watch.battery?.batteryHand?.image)!)
+                battery.texture = SKTexture(imageNamed: (watch.getBattery()?.getBatteryHand()?.getImageName())!)
                 battery.isHidden = false
-                battery.position = CGPoint(x:(watch.battery?.batteryHand?.positionX)!, y: (watch.battery?.batteryHand?.positionY)!)
-                battery.xScale = CGFloat((watch.battery?.batteryHand?.scale)!)
-                battery.yScale = CGFloat((watch.battery?.batteryHand?.scale)!)
+                battery.position = CGPoint(x:(watch.getBattery()?.getBatteryHand()?.getHandPosition()[0])!, y: (watch.getBattery()?.getBatteryHand()?.getHandPosition()[1])!)
+                battery.xScale = CGFloat((watch.getBattery()?.getBatteryHand()?.getScale())!)
+                battery.yScale = CGFloat((watch.getBattery()?.getBatteryHand()?.getScale())!)
                 battery.zPosition = 1
                 
             }
@@ -299,9 +319,12 @@ class WatchScene: SKScene {
         if let BalanceWheel : SKSpriteNode = self.childNode(withName: "BalanceWheel") as? SKSpriteNode{
             balanceWheel  = BalanceWheel
             
-            if watch.skeleton != nil {
+            if watch.getSkeleton() != nil {
                 balanceWheel.isHidden = false
-                balanceWheel.texture = SKTexture(imageNamed: (watch.skeleton?.balanceWheel)!)
+                balanceWheel.texture = SKTexture(imageNamed: (watch.getSkeleton()?.getBalanceWheelName())!)
+                balanceWheel.position = CGPoint(x: (watch.getSkeleton()?.getPosition()[0])!, y: (watch.getSkeleton()?.getPosition()[1])!)
+                balanceWheel.xScale = CGFloat((watch.getSkeleton()?.getScale())!)
+                balanceWheel.yScale = CGFloat((watch.getSkeleton()?.getScale())!)
                 balanceWheel.zPosition = 1
             }
                 
@@ -315,9 +338,9 @@ class WatchScene: SKScene {
         if let Tourbillion : SKSpriteNode = self.childNode(withName: "Tourbillon") as? SKSpriteNode{
             tourbillon  = Tourbillion
             
-            if watch.tourbillon != nil {
+            if watch.getTourbillon() != nil {
                 tourbillon.isHidden = false
-                tourbillon.texture = SKTexture(imageNamed: (watch.tourbillon?.tourbillion)!)
+                tourbillon.texture = SKTexture(imageNamed: (watch.getTourbillon()?.getTourbillonName())!)
                 tourbillon.zPosition = 2
             }
                 
@@ -328,9 +351,56 @@ class WatchScene: SKScene {
             
         }
         
+        if let gmtHd : SKSpriteNode = self.childNode(withName: "GmtHand") as? SKSpriteNode{
+            gmtHand = gmtHd
+            if watch.getGmt() != nil{
+                if watch.getLuminescent() == true && WatchManager.isNightModeEnable(){
+                    let texture = (watch.getGmt()?.getGmtHand().getImageName())! + "-night"
+                    gmtHand.texture = SKTexture(imageNamed: (texture))
+                }
+                else{
+                    gmtHand.texture = SKTexture(imageNamed: (watch.getGmt()?.getGmtHand().getImageName())!)
+                }
+                gmtHand.position.x = CGFloat((watch.getGmt()?.getGmtHand().getHandPosition()[0])!)
+                gmtHand.position.y = CGFloat((watch.getGmt()?.getGmtHand().getHandPosition()[1])!)
+                gmtHand.zPosition = 1
+                gmtHand.xScale = CGFloat((watch.getGmt()?.getGmtHand().getScale())!)
+                gmtHand.yScale = CGFloat((watch.getGmt()?.getGmtHand().getScale())!)
+            }
+            else {
+                gmtHand.isHidden = true
+            }
+            
+            
+        }
         
         
+        
+        if let tpLayer : SKSpriteNode = self.childNode(withName: "TopLayer") as? SKSpriteNode{
+            topLayer = tpLayer
+            if watch.getTopLayer() != nil{
+                topLayer.texture = SKTexture(imageNamed: (watch.getTopLayer()?.getImageName())!)
+                topLayer.position.x = CGFloat((watch.getTopLayer()?.getPosition()[0])!)
+                topLayer.position.y = CGFloat((watch.getTopLayer()?.getPosition()[1])!)
+                topLayer.xScale = CGFloat(watch.getTopLayer()!.getScale())
+                topLayer.yScale = CGFloat(watch.getTopLayer()!.getScale())
+            }
+            else{
+                topLayer.isHidden = true
+            }
+        }
+        
+        if let nghtLayer : SKSpriteNode = self.childNode(withName: "NightLayer") as? SKSpriteNode{
+            nightLayer = nghtLayer
+            if watch.getLuminescent()! && WatchManager.isNightModeEnable(){
+                print("NightModeActive")
+            }
+            else{
+                nightLayer.isHidden = true
+            }
+        }
     }
+    
     
     
     // MARK: Update
@@ -349,50 +419,62 @@ class WatchScene: SKScene {
         minuteHand.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
         hourHand.zRotation = -1 * degreesToRadians(hour*30 + minutes/2)
         
-        
-        if watch.stop2Go == true{
-            secondHand.zRotation = -1 * degreesToRadians(seconds*(360/58))
-            if seconds >= 58{
-                secondHand.zRotation = 0
+        if WatchManager.isQuartzModeActive() == true{
+            if watch.getStop2Go() == true{
+                secondHand.zRotation = -1 * degreesToRadians(seconds*(360/58))
+                if seconds >= 58{
+                    secondHand.zRotation = 0
+                }
+            }
+            else {
+                secondHand.zRotation = -1 * degreesToRadians(seconds*(360/60))
             }
         }
+            
         else{
-            secondHand.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9))*6)
+            if watch.getStop2Go() == true{
+                secondHand.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9))*(360/58))
+                if seconds >= 58{
+                    secondHand.zRotation = 0
+                }
+            }
+            else{
+                secondHand.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9))*6)
+            }
         }
         
-        if watch.date != nil{
+        if watch.getDate() != nil{
             dateLabel.text = String(calendar.component(.day, from: date))
         }
         
-        if watch.day != nil {
-            dayLabelSprite.texture = SKTexture(imageNamed: (((watch.day?.getDayInString(day: (weekday-1)))!)))
+        if watch.getDay() != nil {
+            dayLabelSprite.texture = SKTexture(imageNamed: (((watch.getDay()?.getDayInString(day: (Int(weekday-1))))!)))
         }
         
-        if watch.chronograph != nil{
+        if watch.getChronograph() != nil{
             
-            
-            if watch.chronograph?.inWork == true{
-                subHand1.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9) -  watch.chronograph!.secondsChronographStarted + watch.chronograph!.secondsChronographSaved)*6)
+            if (WatchManager.ChronographIsWorking()){
+                subHand1.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9) -  WatchManager.getSecondsChronographStarted() + WatchManager.getSecondsChronographSaved())*6)
                 
-                let subHand2Degrees = (minutes+(seconds/60) -  watch.chronograph!.minutesChronographStarted + watch.chronograph!.minutesChronographSaved)
+                let subHand2Degrees = (minutes+(seconds/60) -  WatchManager.getMinutesChronographStarted() + WatchManager.getMinutesChronographSaved())
                 
-                subHand2.zRotation = -1 * degreesToRadians(subHand2Degrees)*CGFloat((360/((watch.chronograph?.minuteDialNb)!)))
+                subHand2.zRotation = -1 * degreesToRadians(subHand2Degrees)*CGFloat((360/((watch.getChronograph()?.getMinuteDialNumber())!)))
                 
-                subHand3.zRotation = -1 * degreesToRadians((hour*30 + minutes/2 -  watch.chronograph!.hoursChronographStarted + watch.chronograph!.hoursChronographSaved))
+                subHand3.zRotation = -1 * degreesToRadians((hour*30 + minutes/2 -  WatchManager.getHoursChronographStarted() + WatchManager.getHoursChronographSaved()))
                 
             }
             else{
-                subHand1.zRotation = -1 * degreesToRadians((watch.chronograph!.secondsChronographSaved)*6)
+                subHand1.zRotation = -1 * degreesToRadians((WatchManager.getSecondsChronographSaved())*6)
                 
-                subHand2.zRotation = -1 * degreesToRadians((watch.chronograph!.minutesChronographSaved)*CGFloat((360/((watch.chronograph?.minuteDialNb)!))))
+                subHand2.zRotation = -1 * degreesToRadians((WatchManager.getMinutesChronographSaved())*CGFloat((360/((watch.getChronograph()!.getMinuteDialNumber())!))))
                 
-                subHand3.zRotation = -1 * degreesToRadians((watch.chronograph!.hoursChronographSaved))
+                subHand3.zRotation = -1 * degreesToRadians((WatchManager.getHoursChronographSaved()))
                 
             }
             
         }
         
-        if watch.grandeComplication != nil{
+        if watch.getGrandeComplication() != nil{
             let month = CGFloat(calendar.component(.month, from: date))
             let weekday = CGFloat(calendar.component(.weekday, from: date))
             
@@ -402,13 +484,13 @@ class WatchScene: SKScene {
             subHand3.zRotation = -1 * degreesToRadians((day-1)*(360/31))
         }
         
-        if watch.dayCycle != nil{
+        if watch.getDayCycle() != nil{
             dayCycle.zRotation = -1 * degreesToRadians(hour*15 + minutes/2)
             
         }
         
         
-        if watch.battery != nil{
+        if watch.getBattery() != nil{
             let batteryPercentage = WKInterfaceDevice.current().batteryLevel
             
             if batteryPercentage < 0.5{
@@ -420,50 +502,47 @@ class WatchScene: SKScene {
             
         }
         
-        if watch.skeleton != nil{
-            if watch.skeleton?.counterclockwise == false && (watch.skeleton?.movement)! < 3{
+        if watch.getSkeleton() != nil{
+            if watch.getSkeleton()?.getIfCounterClockwiseRotation() == false && (watch.getSkeleton()?.getMovement())! < 3{
                 balanceWheel.zRotation = -1 * degreesToRadians(8)
-                watch.skeleton?.movement += 1
+                watch.getSkeleton()?.setMovement(value: (watch.getSkeleton()?.getMovement())!+1)
             }
             else {
-                watch.skeleton?.counterclockwise = true
+                watch.getSkeleton()?.setCounterClockWiseRotation(value: true)
                 balanceWheel.zRotation = 1 * degreesToRadians(8)
-                watch.skeleton?.movement -= 1
-                if watch.skeleton?.movement == 0{
-                    watch.skeleton?.counterclockwise = false
+                watch.getSkeleton()?.setMovement(value: (watch.getSkeleton()?.getMovement())!-1)
+                if watch.getSkeleton()?.getMovement() == 0{
+                    watch.getSkeleton()?.setCounterClockWiseRotation(value: false)
                 }
             }
             
         }
         
-        if watch.tourbillon != nil{
+        if watch.getTourbillon() != nil{
             tourbillon.zRotation = -1 * degreesToRadians((seconds + nanoseconds/pow(10,9))*12)
         }
         
-        if watch.gmt != nil{
-            var timeZone = 0
-            if let defaults = UserDefaults.standard.value(forKey: "timeZone"){
-                timeZone = defaults as! Int
-            }
-            if WatchManager.inSettings{
-                subHand1.zRotation = -1 * degreesToRadians((hour)*15 + (minutes)/2 + CGFloat(timeZone))
+        if watch.getGmt() != nil{
+            let timeZone = WatchManager.getTimeZone()
+            if WatchManager.isInGmtSettings(){
+                gmtHand.zRotation = -1 * degreesToRadians((hour)*30 + (minutes)/2 + CGFloat(timeZone))
             }
             else{
-                subHand1.zRotation = -1 * degreesToRadians((hour)*15 + (minutes)/2 + CGFloat(timeZone))
+                gmtHand.zRotation = -1 * degreesToRadians((hour)*30 + (minutes)/2 + CGFloat(timeZone))
             }
         }
         
-        if watch.biColour != nil{
-            biColourUp.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
+        if watch.getBiColour() != nil{
+            foregroundLayer.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
         }
     }
     
-
     
     
     func degreesToRadians(_ number:CGFloat) -> CGFloat{
         return number * .pi/180
     }
+
     
 }
 

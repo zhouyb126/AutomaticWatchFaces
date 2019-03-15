@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A400A40A2229EE9B007EBD3E /* HermesCapeCod-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */; };
+		A400A40B2229EE9B007EBD3E /* HermesCapeCod-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */; };
+		A400A40C2229EE9B007EBD3E /* Friz Quadrata Std Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4092229EE9B007EBD3E /* Friz Quadrata Std Medium.otf */; };
+		A400A40D2229EE9B007EBD3E /* Friz Quadrata Std Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4092229EE9B007EBD3E /* Friz Quadrata Std Medium.otf */; };
+		A400A4112229F4C0007EBD3E /* CustomWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400A4102229F4C0007EBD3E /* CustomWatchManager.swift */; };
 		A4125C3B21EE472300890FCE /* WatchDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4125C3A21EE472300890FCE /* WatchDatabase.swift */; };
 		A4125C3C21EE486E00890FCE /* WatchDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4125C3A21EE472300890FCE /* WatchDatabase.swift */; };
+		A4175808222C0DE300A6A211 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B91E2219CFAC005A4056 /* Hand.swift */; };
+		A4175809222C0DE300A6A211 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B91E2219CFAC005A4056 /* Hand.swift */; };
 		A42CC29721EA8FE70012CCD5 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29621EA8FE70012CCD5 /* Watch.swift */; };
 		A42CC29921EA900B0012CCD5 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29821EA900B0012CCD5 /* WatchManager.swift */; };
+		A434006A2218E3410072EA3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4AC694F2212DC2E00AD22FE /* Assets.xcassets */; };
 		A43A913521EA9DFA00E1B875 /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29821EA900B0012CCD5 /* WatchManager.swift */; };
 		A43A913621EA9DFD00E1B875 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CC29621EA8FE70012CCD5 /* Watch.swift */; };
 		A44D8FC321FE3C620058C1B2 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D8FC221FE3C620058C1B2 /* ComplicationController.swift */; };
@@ -27,9 +35,34 @@
 		A45FFC8D21D4DA8D003AE435 /* WatchFace.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A45FFC7121D4DA8C003AE435 /* WatchFace.app */; };
 		A45FFC9921D4DB4B003AE435 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FFC9821D4DB4B003AE435 /* WatchScene.swift */; };
 		A476000321FDBA7A00CFAD02 /* WatchScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A476000221FDBA7A00CFAD02 /* WatchScene.sks */; };
-		A4AC69502212DC2E00AD22FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4AC694F2212DC2E00AD22FE /* Assets.xcassets */; };
+		A48997D6221B4FDC00FA0114 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48997D5221B4FDC00FA0114 /* SettingsViewController.swift */; };
+		A48997D8221C170900FA0114 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48997D7221C170900FA0114 /* Settings.swift */; };
+		A48DDD80221D759200E3FCD8 /* AlternativeWatchfacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DDD7F221D759200E3FCD8 /* AlternativeWatchfacesViewController.swift */; };
+		A48DDD82221D85E500E3FCD8 /* AlternativeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48DDD81221D85E500E3FCD8 /* AlternativeCollectionViewCell.swift */; };
 		A4AC69512212DC3200AD22FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4AC694F2212DC2E00AD22FE /* Assets.xcassets */; };
 		A4AC69522212DC3200AD22FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4AC694F2212DC2E00AD22FE /* Assets.xcassets */; };
+		A4C9B91D2219CF6F005A4056 /* WatchDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B91C2219CF6F005A4056 /* WatchDate.swift */; };
+		A4C9B9212219CFD4005A4056 /* WatchDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B91C2219CF6F005A4056 /* WatchDate.swift */; };
+		A4C9B9232219CFF0005A4056 /* Chronograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9222219CFF0005A4056 /* Chronograph.swift */; };
+		A4C9B9242219D014005A4056 /* Chronograph.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9222219CFF0005A4056 /* Chronograph.swift */; };
+		A4C9B9262219D0BB005A4056 /* GrandeComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9252219D0BB005A4056 /* GrandeComplication.swift */; };
+		A4C9B9272219D0D5005A4056 /* GrandeComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9252219D0BB005A4056 /* GrandeComplication.swift */; };
+		A4C9B9292219D0E4005A4056 /* DayCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9282219D0E4005A4056 /* DayCycle.swift */; };
+		A4C9B92A2219D107005A4056 /* DayCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9282219D0E4005A4056 /* DayCycle.swift */; };
+		A4C9B92F2219D126005A4056 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B92E2219D126005A4056 /* Day.swift */; };
+		A4C9B9302219D126005A4056 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B92E2219D126005A4056 /* Day.swift */; };
+		A4C9B9322219D140005A4056 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9312219D140005A4056 /* Battery.swift */; };
+		A4C9B9332219D140005A4056 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9312219D140005A4056 /* Battery.swift */; };
+		A4C9B9352219D163005A4056 /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9342219D163005A4056 /* Skeleton.swift */; };
+		A4C9B9362219D163005A4056 /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9342219D163005A4056 /* Skeleton.swift */; };
+		A4C9B9382219D17E005A4056 /* Tourbillon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9372219D17E005A4056 /* Tourbillon.swift */; };
+		A4C9B9392219D17E005A4056 /* Tourbillon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9372219D17E005A4056 /* Tourbillon.swift */; };
+		A4C9B93B2219D19E005A4056 /* Gmt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B93A2219D19E005A4056 /* Gmt.swift */; };
+		A4C9B93C2219D19E005A4056 /* Gmt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B93A2219D19E005A4056 /* Gmt.swift */; };
+		A4C9B93E2219D214005A4056 /* DuoTone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B93D2219D214005A4056 /* DuoTone.swift */; };
+		A4C9B93F2219D214005A4056 /* DuoTone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B93D2219D214005A4056 /* DuoTone.swift */; };
+		A4C9B9442219D363005A4056 /* TopLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9432219D363005A4056 /* TopLayer.swift */; };
+		A4C9B9452219D363005A4056 /* TopLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9B9432219D363005A4056 /* TopLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +108,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HermesCapeCod-Regular.otf"; sourceTree = "<group>"; };
+		A400A4092229EE9B007EBD3E /* Friz Quadrata Std Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Friz Quadrata Std Medium.otf"; sourceTree = "<group>"; };
+		A400A4102229F4C0007EBD3E /* CustomWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWatchManager.swift; sourceTree = "<group>"; };
 		A4125C3A21EE472300890FCE /* WatchDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDatabase.swift; sourceTree = "<group>"; };
 		A42CC29621EA8FE70012CCD5 /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		A42CC29821EA900B0012CCD5 /* WatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
@@ -96,7 +132,23 @@
 		A45FFC8A21D4DA8D003AE435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45FFC9821D4DB4B003AE435 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
 		A476000221FDBA7A00CFAD02 /* WatchScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WatchScene.sks; sourceTree = "<group>"; };
+		A48997D5221B4FDC00FA0114 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A48997D7221C170900FA0114 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A48DDD7F221D759200E3FCD8 /* AlternativeWatchfacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeWatchfacesViewController.swift; sourceTree = "<group>"; };
+		A48DDD81221D85E500E3FCD8 /* AlternativeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A4AC694F2212DC2E00AD22FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4C9B91C2219CF6F005A4056 /* WatchDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDate.swift; sourceTree = "<group>"; };
+		A4C9B91E2219CFAC005A4056 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		A4C9B9222219CFF0005A4056 /* Chronograph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chronograph.swift; sourceTree = "<group>"; };
+		A4C9B9252219D0BB005A4056 /* GrandeComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandeComplication.swift; sourceTree = "<group>"; };
+		A4C9B9282219D0E4005A4056 /* DayCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCycle.swift; sourceTree = "<group>"; };
+		A4C9B92E2219D126005A4056 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		A4C9B9312219D140005A4056 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
+		A4C9B9342219D163005A4056 /* Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
+		A4C9B9372219D17E005A4056 /* Tourbillon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tourbillon.swift; sourceTree = "<group>"; };
+		A4C9B93A2219D19E005A4056 /* Gmt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gmt.swift; sourceTree = "<group>"; };
+		A4C9B93D2219D214005A4056 /* DuoTone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuoTone.swift; sourceTree = "<group>"; };
+		A4C9B9432219D363005A4056 /* TopLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +172,23 @@
 		A406946F21DCED740023BCDB /* Watches */ = {
 			isa = PBXGroup;
 			children = (
+				A4C9B91B2219CEDD005A4056 /* Complications */,
+				A434006E2218E38A0072EA3A /* Fonts */,
 				A4125C3A21EE472300890FCE /* WatchDatabase.swift */,
+				A4C9B91E2219CFAC005A4056 /* Hand.swift */,
 				A42CC29621EA8FE70012CCD5 /* Watch.swift */,
 				A42CC29821EA900B0012CCD5 /* WatchManager.swift */,
 			);
 			path = Watches;
+			sourceTree = "<group>";
+		};
+		A434006E2218E38A0072EA3A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A400A4092229EE9B007EBD3E /* Friz Quadrata Std Medium.otf */,
+				A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A45FFC5121D4DA67003AE435 = {
@@ -151,8 +215,10 @@
 		A45FFC5C21D4DA67003AE435 /* AutoWatchFaces */ = {
 			isa = PBXGroup;
 			children = (
+				A497C5C42235BC10007F94BD /* Models */,
+				A497C5C32235BBEC007F94BD /* Cells */,
+				A497C5C22235BBD1007F94BD /* Controllers */,
 				A45FFC5D21D4DA67003AE435 /* AppDelegate.swift */,
-				A45FFC5F21D4DA67003AE435 /* ViewController.swift */,
 				A45FFC6121D4DA67003AE435 /* Main.storyboard */,
 				A45FFC6421D4DA69003AE435 /* Assets.xcassets */,
 				A45FFC6621D4DA69003AE435 /* LaunchScreen.storyboard */,
@@ -183,6 +249,51 @@
 				A45FFC8A21D4DA8D003AE435 /* Info.plist */,
 			);
 			path = "WatchFace Extension";
+			sourceTree = "<group>";
+		};
+		A497C5C22235BBD1007F94BD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A45FFC5F21D4DA67003AE435 /* ViewController.swift */,
+				A48997D5221B4FDC00FA0114 /* SettingsViewController.swift */,
+				A48DDD7F221D759200E3FCD8 /* AlternativeWatchfacesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A497C5C32235BBEC007F94BD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A48DDD81221D85E500E3FCD8 /* AlternativeCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A497C5C42235BC10007F94BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A48997D7221C170900FA0114 /* Settings.swift */,
+				A400A4102229F4C0007EBD3E /* CustomWatchManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4C9B91B2219CEDD005A4056 /* Complications */ = {
+			isa = PBXGroup;
+			children = (
+				A4C9B91C2219CF6F005A4056 /* WatchDate.swift */,
+				A4C9B9222219CFF0005A4056 /* Chronograph.swift */,
+				A4C9B9252219D0BB005A4056 /* GrandeComplication.swift */,
+				A4C9B9282219D0E4005A4056 /* DayCycle.swift */,
+				A4C9B9312219D140005A4056 /* Battery.swift */,
+				A4C9B92E2219D126005A4056 /* Day.swift */,
+				A4C9B9342219D163005A4056 /* Skeleton.swift */,
+				A4C9B9372219D17E005A4056 /* Tourbillon.swift */,
+				A4C9B93A2219D19E005A4056 /* Gmt.swift */,
+				A4C9B93D2219D214005A4056 /* DuoTone.swift */,
+				A4C9B9432219D363005A4056 /* TopLayer.swift */,
+			);
+			path = Complications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +410,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A45FFC7721D4DA8C003AE435 /* Assets.xcassets in Resources */,
+				A400A40C2229EE9B007EBD3E /* Friz Quadrata Std Medium.otf in Resources */,
 				A4AC69512212DC3200AD22FE /* Assets.xcassets in Resources */,
+				A400A40A2229EE9B007EBD3E /* HermesCapeCod-Regular.otf in Resources */,
 				A45FFC7521D4DA8C003AE435 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +421,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4AC69502212DC2E00AD22FE /* Assets.xcassets in Resources */,
+				A434006A2218E3410072EA3A /* Assets.xcassets in Resources */,
+				A400A40D2229EE9B007EBD3E /* Friz Quadrata Std Medium.otf in Resources */,
+				A400A40B2229EE9B007EBD3E /* HermesCapeCod-Regular.otf in Resources */,
 				A476000321FDBA7A00CFAD02 /* WatchScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,11 +435,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A400A4112229F4C0007EBD3E /* CustomWatchManager.swift in Sources */,
 				A45FFC6021D4DA67003AE435 /* ViewController.swift in Sources */,
+				A4C9B9382219D17E005A4056 /* Tourbillon.swift in Sources */,
 				A4125C3B21EE472300890FCE /* WatchDatabase.swift in Sources */,
 				A42CC29721EA8FE70012CCD5 /* Watch.swift in Sources */,
+				A48997D6221B4FDC00FA0114 /* SettingsViewController.swift in Sources */,
+				A4C9B9322219D140005A4056 /* Battery.swift in Sources */,
+				A4C9B9292219D0E4005A4056 /* DayCycle.swift in Sources */,
+				A4C9B92F2219D126005A4056 /* Day.swift in Sources */,
 				A45FFC5E21D4DA67003AE435 /* AppDelegate.swift in Sources */,
+				A4C9B93E2219D214005A4056 /* DuoTone.swift in Sources */,
 				A42CC29921EA900B0012CCD5 /* WatchManager.swift in Sources */,
+				A4C9B9262219D0BB005A4056 /* GrandeComplication.swift in Sources */,
+				A48997D8221C170900FA0114 /* Settings.swift in Sources */,
+				A4175809222C0DE300A6A211 /* Hand.swift in Sources */,
+				A48DDD82221D85E500E3FCD8 /* AlternativeCollectionViewCell.swift in Sources */,
+				A4C9B91D2219CF6F005A4056 /* WatchDate.swift in Sources */,
+				A48DDD80221D759200E3FCD8 /* AlternativeWatchfacesViewController.swift in Sources */,
+				A4C9B9232219CFF0005A4056 /* Chronograph.swift in Sources */,
+				A4C9B9442219D363005A4056 /* TopLayer.swift in Sources */,
+				A4C9B93B2219D19E005A4056 /* Gmt.swift in Sources */,
+				A4C9B9352219D163005A4056 /* Skeleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +464,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C9B9272219D0D5005A4056 /* GrandeComplication.swift in Sources */,
+				A4C9B9242219D014005A4056 /* Chronograph.swift in Sources */,
+				A4C9B92A2219D107005A4056 /* DayCycle.swift in Sources */,
 				A43A913621EA9DFD00E1B875 /* Watch.swift in Sources */,
+				A4C9B9392219D17E005A4056 /* Tourbillon.swift in Sources */,
 				A45FFC8721D4DA8D003AE435 /* ExtensionDelegate.swift in Sources */,
+				A4C9B93C2219D19E005A4056 /* Gmt.swift in Sources */,
+				A4175808222C0DE300A6A211 /* Hand.swift in Sources */,
+				A4C9B93F2219D214005A4056 /* DuoTone.swift in Sources */,
+				A4C9B9452219D363005A4056 /* TopLayer.swift in Sources */,
+				A4C9B9362219D163005A4056 /* Skeleton.swift in Sources */,
+				A4C9B9302219D126005A4056 /* Day.swift in Sources */,
+				A4C9B9332219D140005A4056 /* Battery.swift in Sources */,
 				A4125C3C21EE486E00890FCE /* WatchDatabase.swift in Sources */,
 				A45FFC9921D4DB4B003AE435 /* WatchScene.swift in Sources */,
+				A4C9B9212219CFD4005A4056 /* WatchDate.swift in Sources */,
 				A44D8FC321FE3C620058C1B2 /* ComplicationController.swift in Sources */,
 				A45FFC8321D4DA8D003AE435 /* InterfaceController.swift in Sources */,
 				A43A913521EA9DFA00E1B875 /* WatchManager.swift in Sources */,
