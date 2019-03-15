@@ -9,7 +9,7 @@ App using SpriteKit in order to simulate watchfaces (with complications) on Watc
 
 AWF is battery friendly, the scene is running at 25 frames per second !
 A Quartz mode is avaible with 1 frame per second !
-![select](https://media.giphy.com/media/5tvQGR18R3HWP1P3t0/giphy.gif)
+![select](https://media.giphy.com/media/fdOJMchojodIzYegqN/giphy.gif)
 
 
 ### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
