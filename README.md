@@ -286,4 +286,4 @@ More will come very soon !
 FOR EDUCATIONAL PURPOSES ONLY
 
 # Author
-[@SylGllr](https://twitter.com/SylGllr)
+[@SylGllr](http://www.guilliersylvain.raidghost.com)
