@@ -300,4 +300,4 @@ More will come very soon !
 FOR EDUCATIONAL PURPOSES ONLY, I DON'T OWN THE BRANDS !
 
 # Author
-[@SylGllr](https://twitter.com/SylGllr)
+[@SylGllr](http://www.guilliersylvain.raidghost.com)
