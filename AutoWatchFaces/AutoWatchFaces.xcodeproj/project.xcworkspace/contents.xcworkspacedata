@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:AutoWatchFaces.xcodeproj">
+      location = "self:/Users/sylvainguillier/Documents/xCode/Save/AppStore Sauvegarde/AWF GitHub/AWF 1.0.1 En cours/AutomaticWatchFaces1.0.1/AutoWatchFaces/AutoWatchFaces.xcodeproj">
    </FileRef>
 </Workspace>

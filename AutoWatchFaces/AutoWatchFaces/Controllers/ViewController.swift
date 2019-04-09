@@ -17,6 +17,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var session : WCSession!
     let defaults = UserDefaults.standard
     
+//    let newWatchFaces = true
+//    var udNewWatchFaces: Bool {
+//        get{
+//            if let value = UserDefaults.standard.value(forKey: "NewWatchFaces") as! Bool?{
+//                return value
+//            }
+//            else{
+//                return true
+//            }
+//
+//        }
+//        }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +48,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if let userWatchDatabase = UserDefaults.standard.value(forKey: "UserWatchList") as! Data?{
             let uwdDecoded = try? JSONDecoder().decode([Watch].self, from: userWatchDatabase)
             watchList = uwdDecoded!
+            
+            // Get Watch List ID
+            var watchIdList = [Int]()
+            for watch in watchList{
+                watchIdList.append(watch.id!)
+            }
+            
+            print (watchIdList)
+            
+            // Add new watchfaces
+            for watch in WatchManager.getWatchDatabase(){
+                if (watchIdList.index(of: watch.id!) == nil){
+                    watchList.append(watch)
+                }
+            }
+            if let watchListEncoded = try? JSONEncoder().encode(watchList){
+                UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
+            }
+            
         }
         
+        // TEST
+//            if udNewWatchFaces || newWatchFaces{
+//                print("Je suis dedans")
+//                updateWatchDatabase()
+//                UserDefaults.standard.set(false, forKey: "NewWatchFaces")
+//            }
+        
+        // FIN TEST UPDATE Function en bas
         
         
     }
@@ -131,6 +171,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    
     // MARK: UIButton
     
     @IBAction func modifyButtonPressed(_ sender: UIButton) {
@@ -146,6 +187,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             sendUserWatchList()
         }
     }
+    
+    
+    // TEST
+//    func updateWatchDatabase(){
+//        let watchDatabase = WatchManager.getWatchDatabase()
+//        for watch in watchDatabase{
+//            if (watchList.index(of: watch) == nil){
+//                watchList.append(watch)
+//            }
+//        }
+//        if let watchListEncoded = try? JSONEncoder().encode(watchList){
+//            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
+//        }
+//    }
+//
+    
+    //FIN TEST
     
 }
 

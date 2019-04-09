@@ -56,7 +56,6 @@ class Chronograph: NSObject,Codable{
         let seconds = CGFloat(calendar.component(.second, from: date))
         let nanoseconds = CGFloat(calendar.component(.nanosecond, from: date))
         
-        print("IMINNN")
         inWork = true
         
         secondsChronographStarted = seconds + nanoseconds/pow(10,9)

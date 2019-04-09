@@ -8,12 +8,12 @@
 App using SpriteKit in order to simulate watchfaces (with complications) on WatchOS.
 
 AWF is battery friendly, the scene is running at 25 frames per second !
-A Quartz mode is avaible with 1 frame per second !
+A Quartz mode is available with 1 frame per second !
 ![select](https://media.giphy.com/media/fdOJMchojodIzYegqN/giphy.gif)
 
 
 ### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
-
+### Follow us on Instagram ! [Here](https://www.instagram.com/awfwatch/)
 
 # Video (How to use)
 [![Youtube](https://img.youtube.com/vi/JDg5gp0ZcOI/0.jpg)](https://youtu.be/JDg5gp0ZcOI)
@@ -135,8 +135,11 @@ More will come very soon !
 
 ### Bell & Ross 01-94 (W/ Date & Chronograph) alternative version available
 
+### Blancpain L-Evolution (W/ Date)
+
 ### Breitling Avenger Blackbird (W/ Date)
 ### Breitling Chronoliner B04 (W/Date, GMT, Chronograph)
+### Breitling Chronometer Premier (W/Date, Chronograph) alternative version available
 
 ### Cartier Tank (alternative versions available)
 
@@ -169,17 +172,28 @@ More will come very soon !
 ### Rolex Day-Date (W/ Day) alternative version available
 ### Rolex Daytona (W/ Chronograph) alternative version available
 ### Rolex Explorer II (W/ Date) night version available
-### Rolex GMT Master II (W/ GMT)
+### Rolex GMT Master II (W/ GMT) alternative and night version available
 ### Rolex Milgauss
 ### Rolex Sea Dweller night version available
 ### Rolex Submariner (W/ Date) night & alternative version available
 ![SubAlt](https://i.ibb.co/mHL77vR/Alternate1.png)
 
+### Tag Heuer Kingsman (W/ Date & Chronograph)
 ### Tag Heuer Monaco (W/ Date & Chronograph) alternative version available
 
-### UBoat 1001
+### UBoat 1001 (alternative version available)
 
 # Updates
+
+## Version 1.0.1
+- Blancpain L-Evolution watchface added. (by Telman Akavov)
+- Breitling Chronometer Premier watchface added. (by Telman Akavov)
+- Rolex GMT Master II alternative watchface addded. (by Revo G)
+- Rolex Daytona alternative watchface addded. (by Revo G)
+- Tag Heuer Kingsman. (by Telman Akavov)
+- Uboat 1001 alternative watchfaces added. (by Telman Akavov)
+- Adjustment on watchfaces.
+
 
 ## Version 1.0
 - Custom watchfaces feature, select background colors, hands kit...(Beta version).
@@ -189,7 +203,7 @@ More will come very soon !
 - Hublot Sang Bleu watchface added.
 - IWC Portuguese watchface added.
 - Jaeger Lecoultre Reverso watchface added.
-- Uboat 1001 watchface added. (Thanks Telman Akavov)
+- Uboat 1001 watchface added. (by Telman Akavov)
 - Adjustment on watchfaces(Rolex Submariner dial customizable, Hermes DuoTone dial customizable...).
 
 ## Version 0.9.2
@@ -283,7 +297,7 @@ More will come very soon !
 # Future
 - More watchfaces and complications !
 
-FOR EDUCATIONAL PURPOSES ONLY
+FOR EDUCATIONAL PURPOSES ONLY, I DON'T OWN THE BRANDS !
 
 # Author
 [@SylGllr](https://twitter.com/SylGllr)

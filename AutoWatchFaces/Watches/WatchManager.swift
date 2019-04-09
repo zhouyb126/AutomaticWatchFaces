@@ -37,6 +37,21 @@ class WatchManager{
     private static var hoursChronographSaved : CGFloat = 0
     
     
+    
+    let newWatchFaces = true
+    var udNewWatchFaces: Bool {
+        get{
+            if let value = UserDefaults.standard.value(forKey: "NewWatchFaces") as! Bool?{
+                return value
+            }
+            else{
+                return true
+            }
+            
+        }
+    }
+    
+    
     static func startChronograph(){
         let date = Date()
         let calendar = Calendar.current
@@ -120,6 +135,7 @@ class WatchManager{
     static func initWatchManager(){
         initWatchDatabase()
         initWatchIdList()
+        checkNewWatchOnDatabase()
         initTimezone()
         initWatchface()
         initQuartzMode()
@@ -131,7 +147,9 @@ class WatchManager{
         if let userWatchDatabase = UserDefaults.standard.value(forKey: "UserWatchList") as! Data?{
             let uwdDecoded = try? JSONDecoder().decode([Watch].self, from: userWatchDatabase)
             watchList = uwdDecoded!
-        }
+            }
+            
+        
         else{
             watchList = WatchDatabase().getWatchDatabase()
         }
@@ -364,4 +382,39 @@ class WatchManager{
     static func getWatchDatabase() -> [Watch]{
         return watchList
     }
+    
+    
+    
+    
+    // TEST
+//    static func updateWatchDatabase(){
+//        for watch in WatchManager.getWatchDatabase(){
+//            print (watch.id)
+//            if (watchIdList.index(of: watch.id!) == nil){
+//                watchList.append(watch)
+//            }
+//        }
+//        if let watchListEncoded = try? JSONEncoder().encode(WatchManager.watchList){
+//            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
+//        }
+//    }
+
+
+static func checkNewWatchOnDatabase(){
+    for watch in WatchDatabase().getWatchDatabase(){
+        if (watchIdList.index(of: watch.id!) == nil){
+            watchList.append(watch)
+            watchIdList.append(watch.id!)
+        }
+        
+        if let watchListEncoded = try? JSONEncoder().encode(WatchManager.watchList){
+            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
+        }
+}
+    
+    //FIN TEST
+
+    
+    
+}
 }

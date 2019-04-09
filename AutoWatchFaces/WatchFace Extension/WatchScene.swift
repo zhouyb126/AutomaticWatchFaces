@@ -535,7 +535,19 @@ class WatchScene: SKScene {
         if watch.getBiColour() != nil{
             foregroundLayer.zRotation = -1 * degreesToRadians((minutes+(seconds/60))*6)
         }
+//        dialBackground.texture = nil
+//        dialBackground.color = .black
+//        foregroundLayer.color = .black
+//        backgroundLayer.color = .black
+//        secondHand.isHidden = true
+//        subHand2.isHidden = true
+//        subHand3.isHidden = true
+//        dateLabel.isHidden = true
+//        secondHand.zRotation = degreesToRadians(180)
+//        minuteHand.zRotation = -1 * degreesToRadians((9)*6)
+//        hourHand.zRotation = -1 * degreesToRadians(10*30)
     }
+    
     
     
     
