@@ -23,7 +23,7 @@ A Quartz mode is available with 1 frame per second !
 # Installing
 You can install the app via the .ipa file or with the GitHub project folder :
 ## IPA
-Download the file [here](https://www.dropbox.com/s/x1pu7aygaw1hred/AutoWatchFaces1.0.ipa?dl=0)
+Download the file [here](https://www.dropbox.com/s/e6nw6cv3cm678wt/AutoWatchFaces1.0.1.ipa?dl=0)
 
 ### For non-jail broken devices:
 
