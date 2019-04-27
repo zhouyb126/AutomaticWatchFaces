@@ -383,22 +383,6 @@ class WatchManager{
         return watchList
     }
     
-    
-    
-    
-    // TEST
-//    static func updateWatchDatabase(){
-//        for watch in WatchManager.getWatchDatabase(){
-//            print (watch.id)
-//            if (watchIdList.index(of: watch.id!) == nil){
-//                watchList.append(watch)
-//            }
-//        }
-//        if let watchListEncoded = try? JSONEncoder().encode(WatchManager.watchList){
-//            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
-//        }
-//    }
-
 
 static func checkNewWatchOnDatabase(){
     for watch in WatchDatabase().getWatchDatabase(){
@@ -407,13 +391,10 @@ static func checkNewWatchOnDatabase(){
             watchIdList.append(watch.id!)
         }
         
-        if let watchListEncoded = try? JSONEncoder().encode(WatchManager.watchList){
-            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
-        }
+//        if let watchListEncoded = try? JSONEncoder().encode(WatchManager.watchList){
+//            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
+//        }
 }
-    
-    //FIN TEST
-
     
     
 }

@@ -23,7 +23,7 @@ A Quartz mode is available with 1 frame per second !
 # Installing
 You can install the app via the .ipa file or with the GitHub project folder :
 ## IPA
-Download the file [here](https://www.dropbox.com/s/e6nw6cv3cm678wt/AutoWatchFaces1.0.1.ipa?dl=0)
+Download the file [here](https://www.dropbox.com/s/0u48kd9wf4ghkp0/AutoWatchFaces1.0.2.ipa?dl=0)
 
 ### For non-jail broken devices:
 
@@ -135,7 +135,7 @@ More will come very soon !
 
 ### Bell & Ross 01-94 (W/ Date & Chronograph) alternative version available
 
-### Blancpain L-Evolution (W/ Date)
+### Blancpain L'Evolution (W/ Date)
 
 ### Breitling Avenger Blackbird (W/ Date)
 ### Breitling Chronoliner B04 (W/Date, GMT, Chronograph)
@@ -143,7 +143,9 @@ More will come very soon !
 
 ### Cartier Tank (alternative versions available)
 
+### Hublot Big Bang One Click Marc Ferrero Steel Red
 ### Hublot Sang Bleu
+### Hublot Skull Bang (W/ Date)
 ### Hublot Spirit of Big Bang (W/ Date)
 
 ### IWC DaVinci Tourbillon (W/Chronograph & Tourbillon)
@@ -185,8 +187,12 @@ More will come very soon !
 
 # Updates
 
+## Version 1.0.2
+- Hublot Big Bang One Click Marc Ferrero Steel Red (by Telman Akavov)
+- Hublot Skull Bang (by Telman Akavov)
+
 ## Version 1.0.1
-- Blancpain L-Evolution watchface added. (by Telman Akavov)
+- Blancpain L'Evolution watchface added. (by Telman Akavov)
 - Breitling Chronometer Premier watchface added. (by Telman Akavov)
 - Rolex GMT Master II alternative watchface addded. (by Revo G)
 - Rolex Daytona alternative watchface addded. (by Revo G)
