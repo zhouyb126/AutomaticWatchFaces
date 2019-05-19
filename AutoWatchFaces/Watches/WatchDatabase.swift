@@ -18,14 +18,18 @@ struct WatchDatabase {
                          
                          Watch(id:2,name: "Rolex Explorer II", dial: "ExDial", secHand: Hand(image: "ExSecond", scale: 0.84), minHand: Hand(image: "ExMinute", scale: 0.84), hourHand: Hand(image: "ExHour", scale: 0.48),date: WatchDate(positionX: 65.0, positionY: 0.2, color: [0.0,0.0,0.0]),gmt:Gmt(gmtHand: Hand(image: "ExGmt", scale: 0.9)),luminescent:true),
                          
-                         Watch(id:3,name: "Omega Seamaster", dial: "SEMDial", secHand: Hand(image: "SEMSecond", scale: 0.84), minHand: Hand(image: "SEMMinute", scale: 0.8), hourHand: Hand(image: "SEMHour", scale: 0.44)),
+                         Watch(id:3,name: "Omega Seamaster", dial: "SEMDial", secHand: Hand(image: "SEMSecond", scale: 0.84), minHand: Hand(image: "SEMMinute", scale: 0.8), hourHand: Hand(image: "SEMHour", scale: 0.44),alternative : [
+                            Watch(name: "Alt1", dial: "SEMDial-1", secHand: Hand(image: "SEMSecond-1", scale: 1.0), minHand: Hand(image: "SEMMinute-1", scale: 1.0), hourHand: Hand(image: "SEMHour-1", scale: 1.0),date: WatchDate(positionX: 72, positionY: 0, color: [0.0,0.0,0.0]))
+                            ]),
                          
                          Watch(id:4,name: "Omega Speedmaster Professional", dial: "SMDial", secHand: Hand(image: "SMChr", positionX: -48, scale: 0.4), minHand: Hand(image: "SMMinute", scale: 0.8), hourHand: Hand(image: "SMHour", scale: 0.48), chronograph: Chronograph(secHand: Hand(image: "SMChrSecond", scale: 0.8), minuteHand: Hand(image: "SMChr", positionX: 47.5, scale: 0.4), hourHand: Hand(image: "SMChr",positionX:0.5, positionY: -55.5, scale: 0.4)),secondOnTop:false,alternative:[
                             Watch(name: "Alt1",dial:"SMDial-1",secHand: Hand(image: "SMChr", positionX: -48, scale: 0.34),minHand:Hand(image: "SMMinute-1", scale: 0.8),hourHand:Hand(image: "SMHour-1", scale: 0.45),chronograph:Chronograph(secHand: Hand(image: "SMChrSecond-1", scale: 0.8), minuteHand: Hand(image: "SMChr-1", positionX: 47.5, scale: 0.34), hourHand: Hand(image: "SMChr-1", positionY: -55.5, scale: 0.34)),secondOnTop:false)]),
                          //
         Watch(id:5,name: "Tag Heuer Monaco", dial: "MonacoDial", secHand: Hand(image: "MonacoChr", positionX: 46, scale: 0.45), minHand: Hand(image: "MonacoMinute", scale: 0.96), hourHand: Hand(image: "MonacoHour", scale: 0.96),date: WatchDate(positionX: 0, positionY: -99, color: [1.0,1.0,1.0]), chronograph: Chronograph(secHand: Hand(image: "MonacoChrSecond", scale: 1), minuteHand: Hand(image: "MonacoChr", positionX: -44, scale: 0.45)),secondOnTop:false,
               alternative:[Watch(name: "Alt1", dial: "MonacoDial-1", secHand: Hand(image: "MonacoChr-1", positionX: 46, scale: 0.45),minHand: Hand(image: "MonacoMinute-1", scale: 0.96), hourHand: Hand(image: "MonacoHour-1", scale: 0.96),date: WatchDate(positionX: 0, positionY: -99, color: [0.0,0.0,0.0]), chronograph:Chronograph(secHand: Hand(image: "MonacoChrSecond-1", scale: 1), minuteHand: Hand(image: "MonacoChr-1", positionX: -44, scale: 0.45)),secondOnTop:false),
-                           Watch(name: "Alt2", dial: "MonacoDial-2", secHand: Hand(image: "MonacoChr-1", positionX: 49, scale: 0.45),minHand: Hand(image: "MonacoMinute-2", scale: 0.96), hourHand: Hand(image: "MonacoHour-2", scale: 0.96),date: WatchDate(positionX: -1.5, positionY: -74, color: [0.0,0.0,0.0],fontSize:9), chronograph:Chronograph(secHand: Hand(image: "MonacoChrSecond-2", scale: 1), minuteHand: Hand(image: "MonacoChr-1", positionX: -49.5, scale: 0.45)),secondOnTop:false)]),
+                           Watch(name: "Alt2", dial: "MonacoDial-2", secHand: Hand(image: "MonacoChr-1", positionX: 49, scale: 0.45),minHand: Hand(image: "MonacoMinute-2", scale: 0.96), hourHand: Hand(image: "MonacoHour-2", scale: 0.96),date: WatchDate(positionX: -1.5, positionY: -74, color: [0.0,0.0,0.0],fontSize:9), chronograph:Chronograph(secHand: Hand(image: "MonacoChrSecond-2", scale: 1), minuteHand: Hand(image: "MonacoChr-1", positionX: -49.5, scale: 0.45)),secondOnTop:false),
+            
+                           Watch(name: "Alt3", dial: "MonacoDial-3",minHand: Hand(image: "MonacoMinute-3", scale: 1.0), hourHand: Hand(image: "MonacoHour-3", scale: 1.0),date: WatchDate(positionX: -1.5, positionY: -66, color: [0.0,0.0,0.0],fontSize:12), chronograph:Chronograph(secHand: Hand(image: "MonacoChrSecond-3", scale: 1), minuteHand: Hand(image: "MonacoChr-2", positionX: 49.5, scale: 1.0), hourHand: Hand(image: "MonacoChr-2", positionX: -50, scale: 1.0)),secondOnTop:false)]),
         
         Watch(id:6,name: "Bell & Ross 01-94", dial: "0194Dial", secHand: Hand(image: "0194Chr", positionX: 41, scale: 0.35), minHand: Hand(image: "0194Minute", scale: 0.8), hourHand: Hand(image: "0194Hour", scale: 0.45),date:WatchDate(positionX: 49, positionY: -57.5, color: [1.0,1.0,1.0]), chronograph: Chronograph(secHand: Hand(image: "0194Second", scale: 0.95), minuteHand: Hand(image: "0194Chr", positionX: -43.5, scale: 0.35), hourHand: Hand(image: "0194Chr", positionY: -60, scale: 0.35)),secondOnTop:false,
               alternative:[Watch(name: "Alt1",dial:"0194Dial-1",secHand: Hand(image: "0194Chr-1", positionX: 41, scale: 0.35), minHand: Hand(image: "0194Minute-1", scale: 0.8), hourHand: Hand(image: "0194Hour-1", scale: 0.45),date:WatchDate(positionX: 49, positionY: -57.5, color: [1.0,1.0,1.0]), chronograph: Chronograph(secHand: Hand(image: "0194Second-1", scale: 0.95), minuteHand: Hand(image: "0194Chr-1", positionX: -43.5, scale: 0.35), hourHand: Hand(image: "0194Chr-1", positionY: -60, scale: 0.35)),secondOnTop:false)]),
@@ -144,7 +148,7 @@ struct WatchDatabase {
         
         Watch(id: 36, name: "Tag Heuer Kingsman",dial:"KingDial",secHand: Hand(image: "KingSub", positionY: 48,scale: 1), minHand: Hand(image: "KingMinute", scale: 1), hourHand: Hand(image: "KingHour", scale: 1),date:WatchDate(positionX:72,positionY: 0, color: [1.0,1.0,1.0]),chronograph:Chronograph(secHand: Hand(image: "KingSecond",positionY:0, scale: 1), minuteHand: Hand(image: "KingSub",positionX:-48, scale: 1), hourHand: Hand(image: "KingSub",positionX:2,positionY:-57, scale: 1)),secondOnTop:false),
         
-         Watch(id:37,name: "Blancpain", dial: "blancpain", secHand: Hand(image: "second", scale: 0.8), minHand: Hand(image: "minute", scale: 0.8), hourHand: Hand(image: "hour", scale: 0.65),date:WatchDate(positionX: 0, positionY: -99, color: [1.0,1.0,1.0],fontSize:13)),
+         Watch(id:37,name: "Blancpain Evolution", dial: "blancpain", secHand: Hand(image: "second", scale: 0.8), minHand: Hand(image: "minute", scale: 0.8), hourHand: Hand(image: "hour", scale: 0.65),date:WatchDate(positionX: 0, positionY: -99, color: [1.0,1.0,1.0],fontSize:13)),
          
          Watch(id: 38, name: "Breitling Chronometer Premier",dial:"ChrPremDial",secHand: Hand(image: "ChrPremSub", positionX: -45,scale: 1), minHand: Hand(image: "ChrPremMinute", scale: 1), hourHand: Hand(image: "ChrPremHour", scale: 1),date:WatchDate(positionY:-100, color: [1.0,1.0,1.0]),chronograph:Chronograph(secHand: Hand(image: "ChrPremSecond",positionY:0, scale: 1), minuteHand: Hand(image: "ChrPremSub",positionX:45, scale: 1)),secondOnTop:false,alternative:[
             
@@ -156,10 +160,12 @@ struct WatchDatabase {
          
           Watch(id:39,name: "Hublot Big Bang One Click Marc Ferrero Steel Red", dial: "MFDial",topLayer:TopLayer(imageName: "SBTopLayer-1", positionY: 62, scale: 0.26),  secHand: Hand(image: "MFSec", scale: 1), minHand: Hand(image: "MFMin", scale: 1), hourHand: Hand(image: "MFHour", scale: 1)),
         
-        Watch(id:40,name: "Hublot Skull Bang", dial: "SkullBDial",secHand: Hand(image: "SkullBSec", scale: 1), minHand: Hand(image: "SkullBMin", scale: 1), hourHand: Hand(image: "SkullBHour", scale: 1), date: WatchDate(positionX: 75.0, positionY: 0.0, color: [0.0,0.0,0.0]))
+        Watch(id:40,name: "Hublot Skull Bang", dial: "SkullBDial",secHand: Hand(image: "SkullBSec", scale: 1), minHand: Hand(image: "SkullBMin", scale: 1), hourHand: Hand(image: "SkullBHour", scale: 1), date: WatchDate(positionX: 75.0, positionY: 0.0, color: [0.0,0.0,0.0])),
         
     
-         
+        Watch(id:41,name: "Citizen Chronograph", dial: "citizenDial", minHand: Hand(image: "citizenMin", scale: 1.0), hourHand: Hand(image: "citizenHour", scale: 1.0),chronograph: Chronograph(secHand: Hand(image: "citizenSec", scale: 1.0), minuteHand: Hand(image: "citizenSub", positionY: -45, scale: 0.5), hourHand: Hand(image: "citizenSub",positionX:0, positionY: 45, scale: 0.5)),secondOnTop:false),
+        
+        Watch(id:42,name: "Breguet Classique 5177", dial: "5177Dial",secHand:Hand(image:"5177Sec",scale:0.8), minHand: Hand(image: "5177Min", scale: 0.8), hourHand: Hand(image: "5177Hour", scale: 0.8),date: WatchDate(positionX: 53, positionY: 0, color: [1.0,1.0,1.0]))
         
         
         

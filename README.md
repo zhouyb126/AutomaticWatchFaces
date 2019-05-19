@@ -23,7 +23,7 @@ A Quartz mode is available with 1 frame per second !
 # Installing
 You can install the app via the .ipa file or with the GitHub project folder :
 ## IPA
-Download the file [here](https://www.dropbox.com/s/0u48kd9wf4ghkp0/AutoWatchFaces1.0.2.ipa?dl=0)
+Download the file [here](https://www.dropbox.com/s/7td7axp9s3rafbb/AutoWatchFaces1.0.3.ipa?dl=0)
 
 ### For non-jail broken devices:
 
@@ -137,6 +137,8 @@ More will come very soon !
 
 ### Blancpain L'Evolution (W/ Date)
 
+### Breguet Classique 5177
+
 ### Breitling Avenger Blackbird (W/ Date)
 ### Breitling Chronoliner B04 (W/Date, GMT, Chronograph)
 ### Breitling Chronometer Premier (W/Date, Chronograph) alternative version available
@@ -159,7 +161,7 @@ More will come very soon !
 ### Movado Museum alternative version available
 ### Movado Sapphire Synergy Chrono
 
-### Omega Seamaster
+### Omega Seamaster (W/ Date) alternative version available
 ### Omega Speedmaster Professional (W/ Chronograph) alternative version available
 
 ### Panerai Luminor (W/Date & Battery Indicator)
@@ -186,6 +188,12 @@ More will come very soon !
 ### UBoat 1001 (alternative version available)
 
 # Updates
+
+## Version 1.0.2
+- Breguet Classique 5177 added. (by Telman Akavov)
+- Citizen Chronograph added. (by Telman Akavov)
+- Omega seamaster alternative watchface added. (by Aaron)
+- Tag Heuer Monaco alternatvie watchface added. (by Aaron)
 
 ## Version 1.0.2
 - Hublot Big Bang One Click Marc Ferrero Steel Red (by Telman Akavov)
@@ -306,4 +314,4 @@ More will come very soon !
 FOR EDUCATIONAL PURPOSES ONLY, I DON'T OWN THE BRANDS !
 
 # Author
-[@SylGllr](http://www.guilliersylvain.raidghost.com)
+[@SylGllr](http://sylvainguillier.com)

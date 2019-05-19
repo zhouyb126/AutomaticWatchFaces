@@ -59,7 +59,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             // Add new watchfaces
             for watch in WatchManager.getWatchDatabase(){
-                if (watchIdList.index(of: watch.id!) == nil){
+                if (watchIdList.firstIndex(of: watch.id!) == nil){
                     watchList.append(watch)
                 }
             }
@@ -68,16 +68,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             
         }
-        
-        // TEST
-//            if udNewWatchFaces || newWatchFaces{
-//                print("Je suis dedans")
-//                updateWatchDatabase()
-//                UserDefaults.standard.set(false, forKey: "NewWatchFaces")
-//            }
-        
-        // FIN TEST UPDATE Function en bas
-        
         
     }
     
@@ -189,21 +179,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    // TEST
-//    func updateWatchDatabase(){
-//        let watchDatabase = WatchManager.getWatchDatabase()
-//        for watch in watchDatabase{
-//            if (watchList.index(of: watch) == nil){
-//                watchList.append(watch)
-//            }
-//        }
-//        if let watchListEncoded = try? JSONEncoder().encode(watchList){
-//            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
-//        }
-//    }
-//
+   /*
+    func updateWatchDatabase(){
+        let watchDatabase = WatchManager.getWatchDatabase()
+        for watch in watchDatabase{
+            if (watchList.index(of: watch) == nil){
+                watchList.append(watch)
+            }
+        }
+        if let watchListEncoded = try? JSONEncoder().encode(watchList){
+            UserDefaults.standard.set(watchListEncoded, forKey: "UserWatchList")
+        }
+    }
+
     
-    //FIN TEST
+  */
     
 }
 

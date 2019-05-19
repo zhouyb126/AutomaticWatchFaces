@@ -314,7 +314,7 @@ class WatchManager{
         
         let originalWatchface = getWatchfaceWithId(Id: (WatchSetFromDecoder?.getId())!)
         originalWatchface.appendAlternativeWatchface(watch: WatchSetFromDecoder!)
-        actualWatchIndex = watchIdList.index(of: WatchSetFromDecoder!.id!)!
+        actualWatchIndex = watchIdList.firstIndex(of: WatchSetFromDecoder!.id!)!
         print(actualWatchIndex)
         actualAlternativeWatchIndex = originalWatchface.getAlternative().count-1
         actualWatch = watchList[actualWatchIndex].getAlternative()[actualAlternativeWatchIndex]!
@@ -386,7 +386,7 @@ class WatchManager{
 
 static func checkNewWatchOnDatabase(){
     for watch in WatchDatabase().getWatchDatabase(){
-        if (watchIdList.index(of: watch.id!) == nil){
+        if (watchIdList.firstIndex(of: watch.id!) == nil){
             watchList.append(watch)
             watchIdList.append(watch.id!)
         }
