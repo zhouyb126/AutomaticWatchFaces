@@ -189,7 +189,7 @@ More will come very soon !
 
 # Updates
 
-## Version 1.0.2
+## Version 1.0.3
 - Breguet Classique 5177 added. (by Telman Akavov)
 - Citizen Chronograph added. (by Telman Akavov)
 - Omega seamaster alternative watchface added. (by Aaron)
