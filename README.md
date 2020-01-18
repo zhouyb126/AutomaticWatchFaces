@@ -1,4 +1,7 @@
 ![Swift](https://img.shields.io/badge/language-Swift-orange.svg)
+# Automatic Watch Faces IS NOW CLOCKOLOGY
+
+### Join our Facebook group ! [Here](https://www.facebook.com/groups/AWFgroup/)
 
 # Automatic Watch Faces
 ![AWFPresentation](https://i.ibb.co/px3tsNh/AWF0-7.png)
