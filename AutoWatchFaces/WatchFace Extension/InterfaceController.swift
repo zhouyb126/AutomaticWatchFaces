@@ -37,10 +37,18 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate,WCSessionDelega
         skInterface.isPaused = false
     }
     override func didAppear() {
-        hideTime()
-        crownSequencer.focus()
-        
-    }
+       super.didAppear() // important for removing digital time display hack
+                        // WatchOS 6.0 +
+            
+            if #available(watchOS 6,*) {
+                //WKTimeHidingInterfaceController in Obj C
+            } else {
+                hideTime()
+            }
+            
+            //focus the crown to us at last possible moment
+            crownSequencer.focus()
+        }
     
     func setWatchFace(){
         if let scene = WatchScene(fileNamed: "WatchScene"){
