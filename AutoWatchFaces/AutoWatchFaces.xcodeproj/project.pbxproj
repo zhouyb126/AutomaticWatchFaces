@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276BEA6C2409A9FA00082B68 /* WKTimeHidingInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276BEA6B2409A9FA00082B68 /* WKTimeHidingInterfaceController.m */; };
 		A400A40A2229EE9B007EBD3E /* HermesCapeCod-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */; };
 		A400A40B2229EE9B007EBD3E /* HermesCapeCod-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */; };
 		A400A40C2229EE9B007EBD3E /* Friz Quadrata Std Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A400A4092229EE9B007EBD3E /* Friz Quadrata Std Medium.otf */; };
@@ -108,6 +109,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		276BEA692409A9EE00082B68 /* WKTimeHidingInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKTimeHidingInterfaceController.h; sourceTree = "<group>"; };
+		276BEA6A2409A9FA00082B68 /* WatchFace Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchFace Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		276BEA6B2409A9FA00082B68 /* WKTimeHidingInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTimeHidingInterfaceController.m; sourceTree = "<group>"; };
 		A400A4082229EE9B007EBD3E /* HermesCapeCod-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HermesCapeCod-Regular.otf"; sourceTree = "<group>"; };
 		A400A4092229EE9B007EBD3E /* Friz Quadrata Std Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Friz Quadrata Std Medium.otf"; sourceTree = "<group>"; };
 		A400A4102229F4C0007EBD3E /* CustomWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWatchManager.swift; sourceTree = "<group>"; };
@@ -244,9 +248,12 @@
 				A45FFC9821D4DB4B003AE435 /* WatchScene.swift */,
 				A476000221FDBA7A00CFAD02 /* WatchScene.sks */,
 				A45FFC8621D4DA8D003AE435 /* ExtensionDelegate.swift */,
+				276BEA692409A9EE00082B68 /* WKTimeHidingInterfaceController.h */,
+				276BEA6B2409A9FA00082B68 /* WKTimeHidingInterfaceController.m */,
 				A4AC694F2212DC2E00AD22FE /* Assets.xcassets */,
 				A44D8FC221FE3C620058C1B2 /* ComplicationController.swift */,
 				A45FFC8A21D4DA8D003AE435 /* Info.plist */,
+				276BEA6A2409A9FA00082B68 /* WatchFace Extension-Bridging-Header.h */,
 			);
 			path = "WatchFace Extension";
 			sourceTree = "<group>";
@@ -371,7 +378,7 @@
 					};
 					A45FFC7C21D4DA8C003AE435 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -473,6 +480,7 @@
 				A4C9B9392219D17E005A4056 /* Tourbillon.swift in Sources */,
 				A45FFC8721D4DA8D003AE435 /* ExtensionDelegate.swift in Sources */,
 				A4C9B93C2219D19E005A4056 /* Gmt.swift in Sources */,
+				276BEA6C2409A9FA00082B68 /* WKTimeHidingInterfaceController.m in Sources */,
 				A4175808222C0DE300A6A211 /* Hand.swift in Sources */,
 				A4C9B93F2219D214005A4056 /* DuoTone.swift in Sources */,
 				A4C9B9452219D363005A4056 /* TopLayer.swift in Sources */,
@@ -582,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -637,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -660,6 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = SylvainGuillier.AutoWatchFaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -681,6 +690,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = SylvainGuillier.AutoWatchFaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -693,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B36TV8BA3C;
@@ -702,14 +713,17 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = SylvainGuillier.AutoWatchFaces.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WatchFace Extension/WatchFace Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Debug;
 		};
@@ -717,6 +731,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B36TV8BA3C;
@@ -726,14 +741,16 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = SylvainGuillier.AutoWatchFaces.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WatchFace Extension/WatchFace Extension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Release;
 		};
@@ -746,13 +763,14 @@
 				DEVELOPMENT_TEAM = B36TV8BA3C;
 				IBSC_MODULE = WatchFace_Extension;
 				INFOPLIST_FILE = WatchFace/Info.plist;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = SylvainGuillier.AutoWatchFaces.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Debug;
 		};
@@ -765,13 +783,14 @@
 				DEVELOPMENT_TEAM = B36TV8BA3C;
 				IBSC_MODULE = WatchFace_Extension;
 				INFOPLIST_FILE = WatchFace/Info.plist;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = SylvainGuillier.AutoWatchFaces.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
 			};
 			name = Release;
 		};
